@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/ivSelected"
+        android:layout_width="0dp"
+        android:layout_height="240dp"
+        android:scaleType="centerCrop"
+        android:background="@color/shimmer_gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/ibPlaySelected"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/circular_button_placeholder"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivSelected" />
+
+    <TextView
+        android:id="@+id/tvWatchNow"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:background="@color/shimmer_gray"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+        app:layout_constraintBottom_toBottomOf="@+id/ibPlaySelected"
+        app:layout_constraintStart_toEndOf="@+id/ibPlaySelected"
+        app:layout_constraintTop_toTopOf="@+id/ibPlaySelected" />
+
+    <TextView
+        android:id="@+id/tvPlayTrailer"
+        android:layout_width="92dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/batch_placeholder"
+        android:paddingStart="16dp"
+        android:paddingTop="6dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="6dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/tvWatchNow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvWatchNow" />
+
+
+    <TextView
+        android:id="@+id/tvSelectedMovieName"
+        android:layout_width="92dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@color/shimmer_gray"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/ibPlaySelected"
+        app:layout_constraintTop_toBottomOf="@+id/ibPlaySelected" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:background="@color/shimmer_gray"
+        app:layout_constraintBottom_toBottomOf="@+id/tvSelectedMovieName"
+        app:layout_constraintStart_toEndOf="@+id/tvSelectedMovieName"
+        app:layout_constraintTop_toTopOf="@+id/tvSelectedMovieName" />
+
+    <TextView
+        android:id="@+id/tvSelectedGenre"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:background="@color/shimmer_gray"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+        android:textColor="@color/gray"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/ibLike"
+        app:layout_constraintEnd_toStartOf="@+id/ibLike"
+        app:layout_constraintStart_toStartOf="@+id/tvSelectedMovieName"
+        app:layout_constraintTop_toTopOf="@+id/ibLike" />
+
+    <TextView
+        android:id="@+id/tvSelectedTime"
+        android:layout_width="48dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:background="@color/shimmer_gray"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+        android:textColor="@color/gray"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/tvSelectedMovieName"
+        app:layout_constraintStart_toEndOf="@+id/view"
+        app:layout_constraintTop_toTopOf="@+id/tvSelectedMovieName" />
+
+    <ImageButton
+        android:id="@+id/ibLike"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/shimmer_gray"
+        app:layout_constraintEnd_toStartOf="@+id/ibShare"
+        app:layout_constraintTop_toBottomOf="@+id/tvSelectedMovieName" />
+
+    <ImageButton
+        android:id="@+id/ibShare"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="@color/shimmer_gray"
+        app:layout_constraintEnd_toEndOf="@+id/tvPlayTrailer"
+        app:layout_constraintTop_toTopOf="@+id/ibLike" />
+
+
+    <TextView
+        android:id="@+id/tvDescriptionSelected"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:ellipsize="end"
+        android:maxLines="3"
+        android:layout_marginTop="8dp"
+        android:background="@color/shimmer_gray"
+        app:layout_constraintEnd_toEndOf="@+id/ibShare"
+        app:layout_constraintStart_toStartOf="@+id/tvSelectedGenre"
+        app:layout_constraintTop_toBottomOf="@+id/ibLike" />
+
+    <TextView
+        android:id="@+id/tvStars"
+        android:layout_width="56dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="3"
+        android:background="@color/shimmer_gray"
+        android:layout_marginTop="8dp"
+        android:textStyle="bold"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+        app:layout_constraintStart_toStartOf="@+id/tvSelectedGenre"
+        app:layout_constraintTop_toBottomOf="@+id/tvDescriptionSelected" />
+
+    <TextView
+        android:id="@+id/tvStarCast"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:background="@color/shimmer_gray"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+        android:textColor="@color/gray"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/tvStars"
+        app:layout_constraintEnd_toEndOf="@+id/tvDescriptionSelected"
+        app:layout_constraintStart_toEndOf="@+id/tvStars"
+        app:layout_constraintTop_toTopOf="@+id/tvStars" />
+
+    <TextView
+        android:id="@+id/tvDirector"
+        android:layout_width="56dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ellipsize="end"
+        android:maxLines="3"
+        android:background="@color/shimmer_gray"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/tvSelectedGenre"
+        app:layout_constraintTop_toBottomOf="@+id/tvStarCast" />
+
+    <TextView
+        android:id="@+id/tvDirectorName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:layout_marginStart="8dp"
+        android:background="@color/shimmer_gray"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+        android:textColor="@color/gray"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/tvDirector"
+        app:layout_constraintEnd_toEndOf="@+id/tvDescriptionSelected"
+        app:layout_constraintStart_toEndOf="@+id/tvDirector"
+        app:layout_constraintTop_toTopOf="@+id/tvDirector" />
+
+<!--    <TextView-->
+<!--        android:id="@+id/textView"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:text="More Like This"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/tvDirector"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/tvDirectorName" />-->
+
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:layout_marginBottom="16dp"-->
+<!--        android:orientation="horizontal"-->
+<!--        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        tools:listitem="@layout/thumbnail_item_view"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/textView"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/textView" />-->
+</androidx.constraintlayout.widget.ConstraintLayout>

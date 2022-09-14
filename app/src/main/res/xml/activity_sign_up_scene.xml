@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@id/start"
+        motion:duration="700">
+       <KeyFrameSet>
+           <KeyAttribute
+               motion:motionTarget="@+id/btnSignUp"
+               motion:framePosition="100"
+               android:alpha="1" />
+           <KeyAttribute
+               motion:motionTarget="@+id/btnSignUp"
+               motion:framePosition="90"
+               android:alpha="0" />
+           <KeyAttribute
+               motion:motionTarget="@+id/btnContinue"
+               motion:framePosition="99"
+               android:alpha="1" />
+           <KeyAttribute
+               motion:motionTarget="@+id/btnContinue"
+               motion:framePosition="100"
+               android:alpha="0" />
+       </KeyFrameSet>
+        <OnClick motion:targetId="@+id/btnContinue" />
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="300dp"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/imageView2"
+            android:layout_marginTop="32dp" />
+
+        <Constraint
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="16dp"
+            android:visibility="invisible"
+            motion:layout_constraintTop_toBottomOf="@+id/btnSignUp"
+            motion:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="8dp"
+            android:id="@+id/lvAlreadyAccount" />
+
+        <Constraint
+            android:id="@+id/detailsScrollView"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="16dp"
+            motion:layout_constraintBottom_toTopOf="@+id/btnSignUp"
+            android:layout_marginEnd="24dp"
+            motion:layout_constraintTop_toBottomOf="@+id/tvSignUp"
+            android:layout_marginStart="24dp"
+            motion:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="16dp"
+            android:visibility="invisible">
+        </Constraint>
+
+<!--        <Constraint-->
+<!--            motion:layout_constraintBottom_toTopOf="@+id/imageView5"-->
+<!--            android:id="@+id/btnContinue"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:alpha="0"-->
+<!--            motion:layout_constraintEnd_toEndOf="@+id/detailsScrollView"-->
+<!--            motion:layout_constraintStart_toStartOf="@+id/detailsScrollView" />-->
+
+        <Constraint
+            motion:layout_constraintBottom_toTopOf="@+id/imageView5"
+            android:id="@+id/btnSignUp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            motion:layout_constraintEnd_toEndOf="@+id/detailsScrollView"
+            motion:layout_constraintStart_toStartOf="@+id/detailsScrollView"
+            motion:layout_editor_absoluteX="24dp" />
+        <Constraint
+            motion:layout_constraintEnd_toEndOf="@+id/detailsScrollView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            motion:layout_constraintBottom_toTopOf="@+id/imageView5"
+            motion:layout_constraintStart_toStartOf="@+id/detailsScrollView"
+            android:id="@+id/btnContinue" />
+
+        <Constraint
+            android:layout_marginEnd="24dp"
+            android:layout_height="wrap_content"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintBottom_toTopOf="@+id/btnContinue"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="0dp"
+            android:layout_marginStart="24dp"
+            motion:layout_constraintTop_toBottomOf="@+id/tvSignUp"
+            android:id="@+id/lvWelcome" />
+
+<!--        <Constraint-->
+<!--            android:layout_marginEnd="24dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            motion:layout_constraintStart_toStartOf="parent"-->
+<!--            motion:layout_constraintBottom_toTopOf="@+id/btnSignUp"-->
+<!--            motion:layout_constraintEnd_toEndOf="parent"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_marginStart="24dp"-->
+<!--            motion:layout_constraintTop_toBottomOf="@+id/tvSignUp"-->
+<!--            android:id="@+id/lvWelcome" />-->
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@+id/lvWelcome"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBottom_toTopOf="@+id/btnSignUp"
+            android:layout_marginEnd="24dp"
+            motion:layout_constraintTop_toBottomOf="@+id/tvSignUp"
+            android:layout_marginStart="24dp"
+            motion:layout_constraintStart_toStartOf="parent"
+            android:visibility="invisible">
+        </Constraint>
+        <Constraint
+            motion:layout_constraintEnd_toEndOf="@+id/detailsScrollView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            android:visibility="invisible"
+            motion:layout_constraintBottom_toTopOf="@+id/imageView5"
+            motion:layout_constraintStart_toStartOf="@+id/detailsScrollView"
+            android:id="@+id/btnContinue" />
+        <Constraint
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="300dp"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/imageView2"
+            android:layout_marginTop="-16dp" />
+    </ConstraintSet>
+</MotionScene>

@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".views.SeriesVideoSelectedActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".views.SeriesVideoSelectedActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layoutMain"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/ivSelected"
+                    android:layout_width="0dp"
+                    android:layout_height="300dp"
+                    android:foreground="@drawable/suggestion_main_foreground"
+                    android:scaleType="centerCrop"
+                    android:background="@drawable/ic_image_placeholder"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageButton
+                    android:id="@+id/ibPlaySelected"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/round_button_main"
+                    android:src="@drawable/ic_round_play_arrow_24"
+                    app:layout_constraintBottom_toBottomOf="@+id/ivSelected"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvWatchNow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Watch Now"
+                    android:layout_marginStart="16dp"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                    app:layout_constraintBottom_toBottomOf="@+id/ibPlaySelected"
+                    app:layout_constraintStart_toEndOf="@+id/ibPlaySelected"
+                    app:layout_constraintTop_toTopOf="@+id/ibPlaySelected" />
+
+                <TextView
+                    android:id="@+id/tvPlayTrailer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/light_rounded_background"
+                    android:paddingStart="16dp"
+                    android:paddingTop="6dp"
+                    android:paddingEnd="16dp"
+                    android:paddingBottom="6dp"
+                    android:text="Play Trailer"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvWatchNow"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tvWatchNow" />
+
+
+                <TextView
+                    android:id="@+id/tvSelectedMovieName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="Dr. Strange"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@+id/view"
+                    app:layout_constraintStart_toStartOf="@+id/ibPlaySelected"
+                    app:layout_constraintTop_toBottomOf="@+id/ivSelected" />
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="1dp"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="4dp"
+                    android:background="@color/gray"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvSelectedMovieName"
+                    app:layout_constraintEnd_toStartOf="@+id/tvSelectedTime"
+                    app:layout_constraintTop_toTopOf="@+id/tvSelectedMovieName" />
+
+                <TextView
+                    android:id="@+id/tvSelectedGenre"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:layout_marginEnd="8dp"
+                    android:text="Drama, Horro, Action"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+                    android:textColor="@color/gray"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/ibLike"
+                    app:layout_constraintEnd_toStartOf="@+id/ibLike"
+                    app:layout_constraintStart_toStartOf="@+id/tvSelectedMovieName"
+                    app:layout_constraintTop_toTopOf="@+id/ibLike" />
+
+                <TextView
+                    android:id="@+id/tvSelectedTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2:46 min"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+                    android:textColor="@color/gray"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvSelectedMovieName"
+                    app:layout_constraintEnd_toEndOf="@+id/tvPlayTrailer"
+                    app:layout_constraintTop_toTopOf="@+id/tvSelectedMovieName" />
+
+                <ImageButton
+                    android:id="@+id/ibLike"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:src="@drawable/ic_heart"
+                    app:layout_constraintEnd_toStartOf="@+id/ibShare"
+                    app:layout_constraintTop_toBottomOf="@+id/tvSelectedMovieName" />
+
+                <ImageButton
+                    android:id="@+id/ibShare"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:src="@drawable/ic_share"
+                    app:layout_constraintEnd_toEndOf="@+id/tvPlayTrailer"
+                    app:layout_constraintTop_toTopOf="@+id/ibLike" />
+
+
+                <TextView
+                    android:id="@+id/tvDescriptionSelected"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="3"
+                    android:layout_marginTop="8dp"
+                    android:text="ajoidf japoidj asdpah dshap sdhadshfah dshffa sdhahds jaiosd fjaodsa hdha dhpa hadsjahf fal k djjafsdjf aj odjadh fahd flakhdslf haiuph ahd s"
+                    app:layout_constraintEnd_toEndOf="@+id/ibShare"
+                    app:layout_constraintStart_toStartOf="@+id/tvSelectedGenre"
+                    app:layout_constraintTop_toBottomOf="@+id/ibLike" />
+
+                <TextView
+                    android:id="@+id/tvStars"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="3"
+                    android:text="Stars:"
+                    android:layout_marginTop="8dp"
+                    android:textStyle="bold"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                    app:layout_constraintStart_toStartOf="@+id/tvSelectedGenre"
+                    app:layout_constraintTop_toBottomOf="@+id/tvDescriptionSelected" />
+
+                <TextView
+                    android:id="@+id/tvStarCast"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:text="Zac Efron, Ryan Kiera Armstrong"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+                    android:textColor="@color/gray"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvStars"
+                    app:layout_constraintEnd_toEndOf="@+id/tvDescriptionSelected"
+                    app:layout_constraintStart_toEndOf="@+id/tvStars"
+                    app:layout_constraintTop_toTopOf="@+id/tvStars" />
+
+                <TextView
+                    android:id="@+id/tvDirector"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:ellipsize="end"
+                    android:maxLines="3"
+                    android:text="Director:"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/tvSelectedGenre"
+                    app:layout_constraintTop_toBottomOf="@+id/tvStarCast" />
+
+                <TextView
+                    android:id="@+id/tvDirectorName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:layout_marginStart="8dp"
+                    android:text="Keith Thomas"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+                    android:textColor="@color/gray"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvDirector"
+                    app:layout_constraintEnd_toEndOf="@+id/tvDescriptionSelected"
+                    app:layout_constraintStart_toEndOf="@+id/tvDirector"
+                    app:layout_constraintTop_toTopOf="@+id/tvDirector" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layoutMain2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="@+id/tvDirector"
+                app:layout_constraintTop_toBottomOf="@+id/tvDirectorName">
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginStart="16dp"
+                    android:text="More Like This"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginTop="8dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/shimmerContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <include layout="@layout/movie_detail_placeholder"/>
+                </LinearLayout>
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/shimmerContainer2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="90dp"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="16dp"
+                        android:background="@color/shimmer_gray"/>
+
+                    <include layout="@layout/episode_item_placeholder"/>
+                    <include layout="@layout/episode_item_placeholder"/>
+                    <include layout="@layout/episode_item_placeholder"/>
+                </LinearLayout>
+            </com.facebook.shimmer.ShimmerFrameLayout>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
