@@ -15,18 +15,34 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".views.SelectAvatarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".views.EditProfile"
+            android:exported="false" />
+        <activity
+            android:name=".views.SplashActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".VerifyEmailActivity"
             android:exported="false" />
         <activity
-            android:name=".ProfileActivity"
+            android:name=".views.ProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".SeriesVideoSelectedActivity"
+            android:name=".views.SeriesVideoSelectedActivity"
             android:exported="false" />
         <activity
             android:name=".views.PlayerActivity"
             android:exported="false"
-            android:screenOrientation="landscape" />
+            android:screenOrientation="landscape"
+            android:theme="@style/PlayerTheme"/>
         <activity
             android:name=".views.SignInActivity"
             android:exported="false"
@@ -49,13 +65,7 @@
             android:exported="false" />
         <activity
             android:name=".views.WelcomeActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".views.MainActivity"
             android:exported="true" />

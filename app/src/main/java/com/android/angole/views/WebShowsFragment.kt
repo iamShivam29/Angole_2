@@ -16,6 +16,7 @@ import com.android.angole.adapters.CategoryListItemAdapter
 import com.android.angole.adapters.MainRecyclerAdapter
 import com.android.angole.config.AuthConfig
 import com.android.angole.databinding.FragmentWebShowsBinding
+import com.android.angole.models.HomeItems
 import com.android.angole.viewmodels.StreamViewModel
 
 class WebShowsFragment : Fragment(), CategoryListItemAdapter.OnMainClick {
@@ -23,6 +24,7 @@ class WebShowsFragment : Fragment(), CategoryListItemAdapter.OnMainClick {
     private var handler: Handler? = null
     private var streamViewModel: StreamViewModel? = null
     private var webAdapter: MainRecyclerAdapter? = null
+    private var seriesData = listOf<HomeItems>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
@@ -71,21 +73,21 @@ class WebShowsFragment : Fragment(), CategoryListItemAdapter.OnMainClick {
             it?.let {
                 if (it.data != null){
                     val subCode = it.data.subCode
-                    val homeData = it.data.items
+
                     if (subCode == 200){
-                        if (homeData.isNotEmpty()){
-                            webAdapter = MainRecyclerAdapter(requireContext(), homeData, this)
+                        if(it.data.items != null) {
+                            seriesData = it.data.items
+                        }
+
+                        if (seriesData.isNotEmpty()){
+                            webAdapter = MainRecyclerAdapter(requireContext(), seriesData, this)
                             binding?.rvWebShows?.adapter = webAdapter
                         }else{
                             Toast.makeText(requireContext(), "Data Not found", Toast.LENGTH_SHORT).show()
                         }
+                    }else if (subCode == 404) {
+                        Toast.makeText(requireContext(), "Data Not found", Toast.LENGTH_SHORT).show()
                     }else{
-//                        if (homeData.isEmpty()) {
-//                            Toast.makeText(requireContext(), "Data Not found", Toast.LENGTH_SHORT).show()
-//                        }else{
-//                            Toast.makeText(requireContext(), "Something went wrong", Toast.LENGTH_SHORT).show()
-//                        }
-
                         Toast.makeText(requireContext(), "Something went wrong", Toast.LENGTH_SHORT).show()
                     }
 
@@ -111,9 +113,8 @@ class WebShowsFragment : Fragment(), CategoryListItemAdapter.OnMainClick {
     }
 
     override fun onItemClick(type: String, id: Int) {
-//        val intent = Intent(requireContext(), VideoSelectedActivity::class.java)
-//        intent.putExtra("type", type)
-//        intent.putExtra("id", id)
-//        startActivity(intent)
+        val intent = Intent(requireContext(), SeriesVideoSelectedActivity::class.java)
+        intent.putExtra("id", id)
+        startActivity(intent)
     }
 }

@@ -98,21 +98,23 @@ class HomeFragment : Fragment(), CategoryListItemAdapter.OnMainClick {
             it?.let {
                 if (it.data != null){
                     val subCode = it.data.subCode
-                    homeData = it.data.items
+
                     if (subCode == 200){
+                        if(it.data.items != null) {
+                            homeData = it.data.items
+                        }
+
                         if (homeData.isNotEmpty()){
                             homeAdapter = MainRecyclerAdapter(requireContext(), homeData, this)
                             binding?.rvHome?.adapter = homeAdapter
                         }else{
                             Toast.makeText(requireContext(), "Data Not found", Toast.LENGTH_SHORT).show()
                         }
-                    }else{
-//                        if (homeData.isEmpty()) {
-//                            Toast.makeText(requireContext(), "Data Not found", Toast.LENGTH_SHORT).show()
-//                        }else{
-//                            Toast.makeText(requireContext(), "Something went wrong", Toast.LENGTH_SHORT).show()
-//                        }
-
+                    }
+                    else if (subCode == 404){
+                        Toast.makeText(requireContext(), "Data Not found", Toast.LENGTH_SHORT).show()
+                    }
+                    else{
                         Toast.makeText(requireContext(), "Something went wrong", Toast.LENGTH_SHORT).show()
                     }
 

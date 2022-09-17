@@ -3,9 +3,7 @@ package com.android.angole.viewmodels
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.android.angole.models.HomeData
-import com.android.angole.models.MovieDetails
-import com.android.angole.models.ShowDetails
+import com.android.angole.models.*
 import com.android.angole.repositories.StreamRepo
 import com.android.angole.utils.Resource
 import kotlinx.coroutines.launch
@@ -17,6 +15,8 @@ class StreamViewModel : ViewModel(){
     var liveData = MutableLiveData<Resource<HomeData>>()
     var movieDetailsData = MutableLiveData<Resource<MovieDetails>>()
     var showDetailData = MutableLiveData<Resource<ShowDetails>>()
+    var suggestionData = MutableLiveData<Resource<SuggestionData>>()
+    var favData = MutableLiveData<Resource<FavData>>()
 
     fun getHome(authToken: String){
         viewModelScope.launch {
@@ -51,6 +51,18 @@ class StreamViewModel : ViewModel(){
     fun getShowDetails(authToken: String, id: Int){
         viewModelScope.launch {
             showDetailData.value = StreamRepo().getShowDetails(authToken, id)
+        }
+    }
+
+    fun getSuggestionList(authToken: String){
+        viewModelScope.launch {
+            suggestionData.value = StreamRepo().getSuggestionList(authToken)
+        }
+    }
+
+    fun setLikeUnlike(authToken: String, favDetails: HashMap<String, Any>){
+        viewModelScope.launch {
+            favData.value = StreamRepo().setLikeUnlike(authToken, favDetails)
         }
     }
 }

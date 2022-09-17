@@ -3,22 +3,22 @@ package com.android.angole.models
 data class HomeData(
     val subCode: Int,
     val message: String,
-    val items: List<HomeItems>
+    val items: List<HomeItems>?
 )
 
 data class HomeItems(
-    val categoryName: String,
-    val categoryId: String,
-    val categoryItems: List<CategoryItems>
+    val categoryName: String?,
+    val categoryId: String?,
+    val categoryItems: List<CategoryItems>?
 )
 
 data class CategoryItems(
-    val id: Int,
-    val name: String,
-    val genre: String,
-    val cover: String,
-    val backdrop_path: List<String>,
-    val type: String
+    val id: Int?,
+    val name: String?,
+    val genre: String?,
+    val cover: String?,
+    val backdrop_path: List<String>?,
+    val type: String?
 )
 
 //"categoryName": "Amazon Series",

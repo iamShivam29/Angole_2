@@ -5,7 +5,7 @@ import java.time.Duration
 data class MovieDetails(
     var subCode: Int,
     var message: String,
-    var items: MovieItems
+    var items: MovieItems?
 )
 
 data class MovieItems(
@@ -20,7 +20,8 @@ data class MovieItems(
     var cover_big: String?,
     var release_date: String?,
     var youtube_trailer: String?,
-    var stream_link: String?
+    var stream_link: String?,
+    var isFavourite: Boolean?
 )
 
 //{

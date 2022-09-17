@@ -9,6 +9,7 @@
         <item name="colorSecondary">@color/white</item>
         <item name="colorSecondaryVariant">@color/white</item>
         <item name="colorOnSecondary">@color/white</item>
+
         <!-- Status bar color. -->
 <!--        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>-->
         <item name="android:statusBarColor">@color/black</item>
@@ -21,6 +22,10 @@
         <item name="android:editTextColor">@color/white</item>
 
         <item name="fontFamily">@font/roboto_regular</item>
+    </style>
+
+    <style name="PlayerTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:windowFullscreen">true</item>
     </style>
 
     <style name="circularImageView" parent="">

@@ -15,6 +15,7 @@ import com.android.angole.adapters.CategoryListItemAdapter
 import com.android.angole.adapters.MainRecyclerAdapter
 import com.android.angole.config.AuthConfig
 import com.android.angole.databinding.FragmentMoviesBinding
+import com.android.angole.models.HomeItems
 import com.android.angole.viewmodels.StreamViewModel
 
 class MoviesFragment : Fragment(), CategoryListItemAdapter.OnMainClick {
@@ -22,6 +23,7 @@ class MoviesFragment : Fragment(), CategoryListItemAdapter.OnMainClick {
     private var handler: Handler? = null
     private var streamViewModel: StreamViewModel? = null
     private var moviesAdapter: MainRecyclerAdapter? = null
+    private var moviesData = listOf<HomeItems>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
@@ -72,21 +74,21 @@ class MoviesFragment : Fragment(), CategoryListItemAdapter.OnMainClick {
             it?.let {
                 if (it.data != null){
                     val subCode = it.data.subCode
-                    val homeData = it.data.items
                     if (subCode == 200){
-                        if (homeData.isNotEmpty()){
-                            moviesAdapter = MainRecyclerAdapter(requireContext(), homeData, this)
+                        if(it.data.items != null) {
+                            moviesData = it.data.items
+                        }
+
+                        if (moviesData.isNotEmpty()){
+                            moviesAdapter = MainRecyclerAdapter(requireContext(), moviesData, this)
                             binding?.rvMovies?.adapter = moviesAdapter
                         }else{
                             Toast.makeText(requireContext(), "Data Not found", Toast.LENGTH_SHORT).show()
                         }
-                    }else{
-//                        if (homeData.isEmpty()) {
-//                            Toast.makeText(requireContext(), "Data Not found", Toast.LENGTH_SHORT).show()
-//                        }else{
-//                            Toast.makeText(requireContext(), "Something went wrong", Toast.LENGTH_SHORT).show()
-//                        }
-
+                    }else if (subCode == 404){
+                        Toast.makeText(requireContext(), "Data Not found", Toast.LENGTH_SHORT).show()
+                    }
+                    else{
                         Toast.makeText(requireContext(), "Something went wrong", Toast.LENGTH_SHORT).show()
                     }
 

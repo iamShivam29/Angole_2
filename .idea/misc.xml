@@ -14,6 +14,7 @@
         <entry key="app/src/main/res/drawable/ic_curv_background.xml" value="0.282" />
         <entry key="app/src/main/res/drawable/ic_curv_bottom.xml" value="0.213" />
         <entry key="app/src/main/res/drawable/ic_curv_top.xml" value="0.213" />
+        <entry key="app/src/main/res/drawable/ic_heart_color.xml" value="0.1405" />
         <entry key="app/src/main/res/drawable/ic_image_placeholder.xml" value="0.1685" />
         <entry key="app/src/main/res/drawable/ic_live_tv.xml" value="0.213" />
         <entry key="app/src/main/res/drawable/ic_live_tv_light.xml" value="0.213" />
@@ -31,27 +32,33 @@
         <entry key="app/src/main/res/drawable/light_rounded_background.xml" value="0.282" />
         <entry key="app/src/main/res/drawable/nav_gradient.xml" value="0.1405" />
         <entry key="app/src/main/res/drawable/navigation_icon_selected.xml" value="0.1405" />
+        <entry key="app/src/main/res/drawable/outline_btn_background.xml" value="0.1405" />
         <entry key="app/src/main/res/drawable/play_next_icon.xml" value="0.213" />
         <entry key="app/src/main/res/drawable/play_previous_icon.xml" value="0.213" />
         <entry key="app/src/main/res/drawable/round_button_background.xml" value="0.22" />
         <entry key="app/src/main/res/drawable/round_button_main.xml" value="0.282" />
+        <entry key="app/src/main/res/drawable/selectable_background_border.xml" value="0.1405" />
         <entry key="app/src/main/res/drawable/suggestion_main_foreground.xml" value="0.22" />
         <entry key="app/src/main/res/drawable/textinput_round_background.xml" value="0.282" />
         <entry key="app/src/main/res/drawable/welcome_image_foreground.xml" value="0.1205" />
-        <entry key="app/src/main/res/layout/activity_account.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_account.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_change_mail.xml" value="0.25948406676783003" />
         <entry key="app/src/main/res/layout/activity_change_main.xml" value="0.25948406676783003" />
+        <entry key="app/src/main/res/layout/activity_edit_profile.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_player.xml" value="0.2923076923076923" />
         <entry key="app/src/main/res/layout/activity_profile.xml" value="0.22" />
-        <entry key="app/src/main/res/layout/activity_series_video_selected.xml" value="0.2923076923076923" />
+        <entry key="app/src/main/res/layout/activity_select_avatar.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/activity_series_video_selected.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_sign_in.xml" value="0.2" />
         <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_splash.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_subscription.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_verify_email.xml" value="0.2923076923076923" />
         <entry key="app/src/main/res/layout/activity_video_selected.xml" value="0.2" />
         <entry key="app/src/main/res/layout/activity_welcome.xml" value="0.25948406676783003" />
         <entry key="app/src/main/res/layout/alert_dialog_layout.xml" value="0.2923076923076923" />
+        <entry key="app/src/main/res/layout/avatar_item_view.xml" value="0.2914529914529915" />
         <entry key="app/src/main/res/layout/category_item_placeholder.xml" value="0.2914529914529915" />
         <entry key="app/src/main/res/layout/episode_item_placeholder.xml" value="0.2923076923076923" />
         <entry key="app/src/main/res/layout/episode_item_view.xml" value="0.25" />
@@ -67,6 +74,7 @@
         <entry key="app/src/main/res/layout/movie_detail_placeholder.xml" value="0.2914529914529915" />
         <entry key="app/src/main/res/layout/pagination_loader_item.xml" value="0.2914529914529915" />
         <entry key="app/src/main/res/layout/player_controller.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/season_item_view.xml" value="0.2914529914529915" />
         <entry key="app/src/main/res/layout/suggestion_item_placeholder.xml" value="0.2923076923076923" />
         <entry key="app/src/main/res/layout/thumbnail_item_placeholder.xml" value="0.2914529914529915" />
         <entry key="app/src/main/res/layout/thumbnail_item_view.xml" value="0.22" />

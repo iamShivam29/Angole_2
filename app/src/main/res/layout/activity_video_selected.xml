@@ -13,17 +13,17 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/layoutMain"
-            android:visibility="gone"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:visibility="gone">
 
             <ImageView
                 android:id="@+id/ivSelected"
                 android:layout_width="0dp"
                 android:layout_height="300dp"
-                android:foreground="@drawable/suggestion_main_foreground"
-                android:scaleType="centerCrop"
                 android:background="@drawable/ic_image_placeholder"
+                android:foreground="@drawable/suggestion_main_foreground"
+                android:scaleType="fitXY"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -43,8 +43,8 @@
                 android:id="@+id/tvWatchNow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Watch Now"
                 android:layout_marginStart="16dp"
+                android:text="Watch Now"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
                 app:layout_constraintBottom_toBottomOf="@+id/ibPlaySelected"
                 app:layout_constraintStart_toEndOf="@+id/ibPlaySelected"
@@ -98,9 +98,9 @@
                 android:id="@+id/tvSelectedGenre"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
                 android:ellipsize="end"
                 android:maxLines="1"
-                android:layout_marginEnd="8dp"
                 android:text="Drama, Horro, Action"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
                 android:textColor="@color/gray"
@@ -147,9 +147,9 @@
                 android:id="@+id/tvDescriptionSelected"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:ellipsize="end"
                 android:maxLines="3"
-                android:layout_marginTop="8dp"
                 android:text="ajoidf japoidj asdpah dshap sdhadshfah dshffa sdhahds jaiosd fjaodsa hdha dhpa hadsjahf fal k djjafsdjf aj odjadh fahd flakhdslf haiuph ahd s"
                 app:layout_constraintEnd_toEndOf="@+id/ibShare"
                 app:layout_constraintStart_toStartOf="@+id/tvSelectedGenre"
@@ -159,12 +159,12 @@
                 android:id="@+id/tvStars"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:ellipsize="end"
                 android:maxLines="3"
                 android:text="Stars:"
-                android:layout_marginTop="8dp"
-                android:textStyle="bold"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/tvSelectedGenre"
                 app:layout_constraintTop_toBottomOf="@+id/tvDescriptionSelected" />
 
@@ -179,7 +179,6 @@
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
                 android:textColor="@color/gray"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/tvStars"
                 app:layout_constraintEnd_toEndOf="@+id/tvDescriptionSelected"
                 app:layout_constraintStart_toEndOf="@+id/tvStars"
                 app:layout_constraintTop_toTopOf="@+id/tvStars" />
@@ -201,9 +200,9 @@
                 android:id="@+id/tvDirectorName"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
                 android:ellipsize="end"
                 android:maxLines="2"
-                android:layout_marginStart="8dp"
                 android:text="Keith Thomas"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
                 android:textColor="@color/gray"

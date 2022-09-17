@@ -6,28 +6,6 @@
     android:layout_height="match_parent">
 
     <ImageButton
-        android:id="@+id/ibBack"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:background="?attr/selectableItemBackground"
-        android:src="@drawable/ic_back_arrow"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tvVideoName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Demo"
-        android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
-        app:layout_constraintBottom_toBottomOf="@+id/ibBack"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/ibBack" />
-
-    <ImageButton
         android:id="@+id/exo_rew"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -43,7 +21,7 @@
         android:id="@+id/flPlayPause"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/exo_ffwd"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/exo_rew"

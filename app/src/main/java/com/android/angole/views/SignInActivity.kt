@@ -3,6 +3,7 @@ package com.android.angole.views
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.util.Patterns
 import android.view.View
 import android.widget.Toast
@@ -79,7 +80,7 @@ class SignInActivity : AppCompatActivity() {
             it?.let {
                 if (it.data != null){
                     val subCode = it.data.subCode
-                    val message = it.message
+                    val message = it.data.message
                     if (subCode == 200){
                         val loginItems = it.data.items
                         val token = loginItems?.token
@@ -93,7 +94,7 @@ class SignInActivity : AppCompatActivity() {
                                     authConfig.setProfile(tok, true)
                                 }
 
-                                val intent = Intent(this, WelcomeActivity::class.java)
+                                val intent = Intent(this, ProfileActivity::class.java)
                                 startActivity(intent)
                                 finish()
                             }else{

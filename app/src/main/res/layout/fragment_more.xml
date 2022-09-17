@@ -79,6 +79,8 @@
                 <ImageView
                     android:layout_width="60dp"
                     android:layout_height="60dp"
+                    android:padding="14dp"
+                    android:src="@drawable/ic_account"
                     android:background="@drawable/round_button_main" />
 
                 <TextView
@@ -103,6 +105,9 @@
                 <ImageView
                     android:layout_width="60dp"
                     android:layout_height="60dp"
+                    android:src="@drawable/ic_edit_icon"
+                    app:tint="@color/white"
+                    android:padding="14dp"
                     android:background="@drawable/round_button_main" />
 
                 <TextView
@@ -127,6 +132,8 @@
                 <ImageView
                     android:layout_width="60dp"
                     android:layout_height="60dp"
+                    android:src="@drawable/ic_sign_out"
+                    android:padding="14dp"
                     android:background="@drawable/round_button_main" />
 
                 <TextView

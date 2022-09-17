@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.android.angole.R
 import com.android.angole.databinding.ThumbnailItemViewBinding
@@ -19,7 +20,7 @@ class CategoryListItemAdapter(val context: Context, private val itemList: List<C
 
     override fun onBindViewHolder(holder: CategoryItemViewHolder, position: Int) {
         val imageUrl = itemList[position].cover
-        if (imageUrl.isNotEmpty()) {
+        if (!imageUrl.isNullOrEmpty()) {
             if (!(context as Activity).isFinishing) {
                 Glide.with(context)
                     .load(itemList[position].cover)
@@ -44,7 +45,12 @@ class CategoryListItemAdapter(val context: Context, private val itemList: List<C
             binding.thumbnailRoot.setOnClickListener {
                 val type = itemList[absoluteAdapterPosition].type
                 val id = itemList[absoluteAdapterPosition].id
-                onMainClick.onItemClick(type, id)
+
+                if (type == null || id == null){
+                    Toast.makeText(context, "Something went wrong", Toast.LENGTH_SHORT).show()
+                }else {
+                    onMainClick.onItemClick(type, id)
+                }
             }
         }
     }

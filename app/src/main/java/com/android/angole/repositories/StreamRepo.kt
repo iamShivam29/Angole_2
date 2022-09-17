@@ -1,8 +1,6 @@
 package com.android.angole.repositories
 
-import com.android.angole.models.HomeData
-import com.android.angole.models.MovieDetails
-import com.android.angole.models.ShowDetails
+import com.android.angole.models.*
 import com.android.angole.networks.RetrofitBuilder
 import com.android.angole.utils.Resource
 import com.android.angole.utils.SafeApiRequest
@@ -31,5 +29,13 @@ class StreamRepo: SafeApiRequest() {
 
     suspend fun getShowDetails(authToken: String, id: Int): Resource<ShowDetails>{
         return apiRequest { RetrofitBuilder().streamService().getShowDetails(authToken, id) }
+    }
+
+    suspend fun getSuggestionList(authToken: String): Resource<SuggestionData>{
+        return apiRequest { RetrofitBuilder().streamService().getSuggestionList(authToken) }
+    }
+
+    suspend fun setLikeUnlike(authToken: String, favDetails: HashMap<String, Any>): Resource<FavData>{
+        return apiRequest { RetrofitBuilder().streamService().setLikeUnlike(authToken, favDetails) }
     }
 }

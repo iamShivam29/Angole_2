@@ -20,7 +20,7 @@ class MainRecyclerAdapter(val context: Context, private val itemList: List<HomeI
         holder.binding.tvCategoryName.text = itemList[position].categoryName
 
         val categoryItemList = itemList[position].categoryItems
-        val categoryAdapter = CategoryListItemAdapter(context, categoryItemList, onMainClick)
+        val categoryAdapter = CategoryListItemAdapter(context, categoryItemList!!, onMainClick)
         holder.binding.rvCategoryItem.adapter = categoryAdapter
     }
 

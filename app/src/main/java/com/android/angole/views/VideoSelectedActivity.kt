@@ -15,8 +15,10 @@ import com.bumptech.glide.Glide
 
 class VideoSelectedActivity : AppCompatActivity() {
     private var binding: ActivityVideoSelectedBinding? = null
-    private var streamViewMode: StreamViewModel? = null
+    private var streamViewModel: StreamViewModel? = null
     private var streamId: Int? = null
+    private var detailsData: MovieItems? = null
+    private var imageUrl = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +30,7 @@ class VideoSelectedActivity : AppCompatActivity() {
     }
 
     private fun initView(){
-        streamViewMode = ViewModelProvider(this)[StreamViewModel::class.java]
+        streamViewModel = ViewModelProvider(this)[StreamViewModel::class.java]
 
         binding?.shimmerContainer?.visibility = View.VISIBLE
         binding?.shimmerContainer2?.visibility = View.VISIBLE
@@ -41,6 +43,10 @@ class VideoSelectedActivity : AppCompatActivity() {
             val intent = Intent(this, PlayerActivity::class.java)
             startActivity(intent)
         }
+
+        binding?.ibLike?.setOnClickListener {
+            setLikeUnlike()
+        }
     }
 
     private fun loadData(){
@@ -48,17 +54,21 @@ class VideoSelectedActivity : AppCompatActivity() {
         val authToken = "Bearer $token"
 
         streamId = intent.getIntExtra("id", 0)
-        streamViewMode?.getMovieDetails(authToken, streamId!!)
+        streamViewModel?.getMovieDetails(authToken, streamId!!)
 
-        streamViewMode?.movieDetailsData?.observe(this){
+        streamViewModel?.movieDetailsData?.observe(this){
             it?.let {
                 if (it.data != null){
                     val subCode = it.data.subCode
                     if (subCode == 200){
-                        val detailsData = it.data.items
+                        detailsData = it.data.items
 
                         binding?.layoutMain?.visibility = View.VISIBLE
-                        setDetails(detailsData)
+                        if (detailsData != null) {
+                            setDetails(detailsData!!)
+                        }else{
+                            Toast.makeText(this, "Data not found", Toast.LENGTH_SHORT).show()
+                        }
                     }else{
                         Toast.makeText(this, "Something went wrong", Toast.LENGTH_SHORT).show()
                     }
@@ -120,7 +130,7 @@ class VideoSelectedActivity : AppCompatActivity() {
             binding?.tvPlayTrailer?.visibility = View.INVISIBLE
         }
 
-        var imageUrl = ""
+
         if (!detailsData.cover_big.isNullOrEmpty()){
             imageUrl = detailsData.cover_big!!
         }else if (!detailsData.movie_image.isNullOrEmpty()){
@@ -135,6 +145,53 @@ class VideoSelectedActivity : AppCompatActivity() {
             Glide.with(this)
                 .load(imageUrl)
                 .into(binding?.ivSelected!!)
+        }
+
+        detailsData.isFavourite?.let {
+            if (it){
+                binding?.ibLike?.setImageResource(R.drawable.ic_heart_color)
+            }else{
+                binding?.ibLike?.setImageResource(R.drawable.ic_heart)
+            }
+        }
+    }
+
+    private fun setLikeUnlike(){
+        detailsData?.let {
+            val authConfig = AuthConfig(this)
+            val authToken = "Bearer " + authConfig.getToken()
+            val favDetails = HashMap<String, Any>()
+            favDetails["cover"] = imageUrl
+            favDetails["id"] = intent.getIntExtra("id", 0)
+            favDetails["type"] = "MOVIES"
+
+            streamViewModel?.setLikeUnlike(authToken, favDetails)
+            streamViewModel?.favData?.observe(this){
+                it?.let {
+                    if (it.data != null){
+                        val status = it.data.status
+                        val subCode = it.data.subCode
+                        if (status){
+                            if (subCode == 201){
+                                binding?.ibLike?.setImageResource(R.drawable.ic_heart_color)
+                            }else{
+                                binding?.ibLike?.setImageResource(R.drawable.ic_heart)
+                            }
+                        }else{
+                            Toast.makeText(this, "Something went wrong", Toast.LENGTH_SHORT).show()
+                        }
+                    }else{
+                        if (!it.message.isNullOrEmpty()) {
+                            Toast.makeText(this, it.message, Toast.LENGTH_SHORT).show()
+                        }else{
+                            Toast.makeText(this, "Something went wrong", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+
+                    binding?.shimmerContainer?.visibility = View.GONE
+                    binding?.shimmerContainer?.stopShimmer()
+                }
+            }
         }
     }
 }

@@ -5,9 +5,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.widget.ImageView
+import android.widget.TextView
 import com.android.angole.R
 import com.android.angole.config.AuthConfig
 import com.android.angole.databinding.ActivityWelcomeBinding
+import com.android.angole.utils.OnBoardSingleton.onBoardList
+import com.bumptech.glide.Glide
 
 class WelcomeActivity : AppCompatActivity() {
     private var binding: ActivityWelcomeBinding? = null
@@ -31,10 +35,12 @@ class WelcomeActivity : AppCompatActivity() {
     }
 
     private fun initView(){
+        setData()
         looperForFlipper()
 
         binding?.btnGetStarted?.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
+            finish()
         }
     }
 
@@ -75,5 +81,36 @@ class WelcomeActivity : AppCompatActivity() {
                 binding?.dot4?.setImageResource(R.drawable.dot_enabled)
             }
         }
+    }
+
+    private fun setData(){
+        setImage(binding?.image1!!, onBoardList[0]["posterLink"]!!)
+        setImage(binding?.image2!!, onBoardList[1]["posterLink"]!!)
+        setImage(binding?.image3!!, onBoardList[2]["posterLink"]!!)
+        setImage(binding?.image4!!, onBoardList[3]["posterLink"]!!)
+
+        setHeadline(binding?.welcomeTitle1!!, onBoardList[0]["headLine"]!!)
+        setHeadline(binding?.welcomeTitle2!!, onBoardList[1]["headLine"]!!)
+        setHeadline(binding?.welcomeTitle3!!, onBoardList[2]["headLine"]!!)
+        setHeadline(binding?.welcomeTitle4!!, onBoardList[3]["headLine"]!!)
+
+        setSubtitle(binding?.welcomeSubTitle1!!, onBoardList[0]["subtitle"]!!)
+        setSubtitle(binding?.welcomeSubTitle2!!, onBoardList[1]["subtitle"]!!)
+        setSubtitle(binding?.welcomeSubTitle3!!, onBoardList[2]["subtitle"]!!)
+        setSubtitle(binding?.welcomeSubTitle4!!, onBoardList[3]["subtitle"]!!)
+    }
+
+    private fun setImage(view: ImageView, url: String){
+        Glide.with(this)
+            .load(url)
+            .into(view)
+    }
+
+    private fun setHeadline(view: TextView, headline: String){
+        view.text = headline
+    }
+
+    private fun setSubtitle(view: TextView, subtitle: String){
+        view.text = subtitle
     }
 }
