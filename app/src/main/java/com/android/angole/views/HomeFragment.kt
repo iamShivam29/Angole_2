@@ -18,7 +18,7 @@ import com.android.angole.databinding.FragmentHomeBinding
 import com.android.angole.models.HomeItems
 import com.android.angole.viewmodels.StreamViewModel
 
-class HomeFragment : Fragment(), CategoryListItemAdapter.OnMainClick {
+class HomeFragment : Fragment(), CategoryListItemAdapter.OnMainClick, MainRecyclerAdapter.OnClickEvent {
     private var binding: FragmentHomeBinding? = null
     private var handler: Handler? = null
     private var streamViewModel: StreamViewModel? = null
@@ -105,7 +105,7 @@ class HomeFragment : Fragment(), CategoryListItemAdapter.OnMainClick {
                         }
 
                         if (homeData.isNotEmpty()){
-                            homeAdapter = MainRecyclerAdapter(requireContext(), homeData, this)
+                            homeAdapter = MainRecyclerAdapter(requireContext(), homeData, this, this)
                             binding?.rvHome?.adapter = homeAdapter
                         }else{
                             Toast.makeText(requireContext(), "Data Not found", Toast.LENGTH_SHORT).show()
@@ -149,6 +149,10 @@ class HomeFragment : Fragment(), CategoryListItemAdapter.OnMainClick {
             intent.putExtra("id", id)
             startActivity(intent)
         }
+    }
 
+    override fun onItemClick(homeItems: HomeItems) {
+        val intent = Intent(requireContext(), SeeMoreActivity::class.java)
+        startActivity(intent)
     }
 }

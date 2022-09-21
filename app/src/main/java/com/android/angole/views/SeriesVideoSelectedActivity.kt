@@ -13,7 +13,6 @@ import com.android.angole.adapters.SeasonRecyclerAdapter
 import com.android.angole.config.AuthConfig
 import com.android.angole.databinding.ActivitySeriesVideoSelectedBinding
 import com.android.angole.models.Episodes
-import com.android.angole.models.MovieItems
 import com.android.angole.models.SeriesInfo
 import com.android.angole.models.ShowItems
 import com.android.angole.viewmodels.StreamViewModel

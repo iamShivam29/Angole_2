@@ -9,7 +9,7 @@ import com.android.angole.databinding.HomeItemLayoutBinding
 import com.android.angole.models.HomeItems
 import com.bumptech.glide.Glide
 
-class MainRecyclerAdapter(val context: Context, private val itemList: List<HomeItems>, private val onMainClick: CategoryListItemAdapter.OnMainClick): RecyclerView.Adapter<MainRecyclerAdapter.MainItemViewHolder>() {
+class MainRecyclerAdapter(val context: Context, private val itemList: List<HomeItems>, private val onMainClick: CategoryListItemAdapter.OnMainClick, val onClickEvent: OnClickEvent): RecyclerView.Adapter<MainRecyclerAdapter.MainItemViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainItemViewHolder {
         val inflater = LayoutInflater.from(context)
         val binding = HomeItemLayoutBinding.inflate(inflater)
@@ -28,5 +28,16 @@ class MainRecyclerAdapter(val context: Context, private val itemList: List<HomeI
         return itemList.size
     }
 
-    inner class MainItemViewHolder(val binding: HomeItemLayoutBinding): RecyclerView.ViewHolder(binding.root)
+    inner class MainItemViewHolder(val binding: HomeItemLayoutBinding): RecyclerView.ViewHolder(binding.root){
+        init {
+            binding.btnSeeMore.setOnClickListener {
+                val homeItems = itemList[absoluteAdapterPosition]
+                onClickEvent.onItemClick(homeItems)
+            }
+        }
+    }
+
+    interface OnClickEvent{
+        fun onItemClick(homeItems: HomeItems)
+    }
 }

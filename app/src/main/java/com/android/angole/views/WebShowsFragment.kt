@@ -19,7 +19,7 @@ import com.android.angole.databinding.FragmentWebShowsBinding
 import com.android.angole.models.HomeItems
 import com.android.angole.viewmodels.StreamViewModel
 
-class WebShowsFragment : Fragment(), CategoryListItemAdapter.OnMainClick {
+class WebShowsFragment : Fragment(), CategoryListItemAdapter.OnMainClick, MainRecyclerAdapter.OnClickEvent {
     private var binding: FragmentWebShowsBinding? = null
     private var handler: Handler? = null
     private var streamViewModel: StreamViewModel? = null
@@ -80,7 +80,7 @@ class WebShowsFragment : Fragment(), CategoryListItemAdapter.OnMainClick {
                         }
 
                         if (seriesData.isNotEmpty()){
-                            webAdapter = MainRecyclerAdapter(requireContext(), seriesData, this)
+                            webAdapter = MainRecyclerAdapter(requireContext(), seriesData, this, this)
                             binding?.rvWebShows?.adapter = webAdapter
                         }else{
                             Toast.makeText(requireContext(), "Data Not found", Toast.LENGTH_SHORT).show()
@@ -116,5 +116,9 @@ class WebShowsFragment : Fragment(), CategoryListItemAdapter.OnMainClick {
         val intent = Intent(requireContext(), SeriesVideoSelectedActivity::class.java)
         intent.putExtra("id", id)
         startActivity(intent)
+    }
+
+    override fun onItemClick(homeItems: HomeItems) {
+        TODO("Not yet implemented")
     }
 }

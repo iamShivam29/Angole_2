@@ -18,7 +18,7 @@ class AvatarRecyclerAdapter(val context: Context, private val avatarList: List<S
 
     override fun onBindViewHolder(holder: MyAvatarViewHolder, position: Int) {
         Glide.with(context)
-            .load("http://139.59.60.119:3000/v1/static/avatar/avatar1.svg")
+            .load("http://139.59.60.119:3000/static/avatar/avatar1.svg")
             .into(holder.binding.ivProfile)
 //        holder.binding.ivProfile.setImageResource(R.drawable.ic_image_placeholder)
     }

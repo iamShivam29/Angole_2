@@ -18,7 +18,7 @@ import com.android.angole.databinding.FragmentMoviesBinding
 import com.android.angole.models.HomeItems
 import com.android.angole.viewmodels.StreamViewModel
 
-class MoviesFragment : Fragment(), CategoryListItemAdapter.OnMainClick {
+class MoviesFragment : Fragment(), CategoryListItemAdapter.OnMainClick, MainRecyclerAdapter.OnClickEvent {
     private var binding: FragmentMoviesBinding? = null
     private var handler: Handler? = null
     private var streamViewModel: StreamViewModel? = null
@@ -80,7 +80,7 @@ class MoviesFragment : Fragment(), CategoryListItemAdapter.OnMainClick {
                         }
 
                         if (moviesData.isNotEmpty()){
-                            moviesAdapter = MainRecyclerAdapter(requireContext(), moviesData, this)
+                            moviesAdapter = MainRecyclerAdapter(requireContext(), moviesData, this, this)
                             binding?.rvMovies?.adapter = moviesAdapter
                         }else{
                             Toast.makeText(requireContext(), "Data Not found", Toast.LENGTH_SHORT).show()
@@ -118,5 +118,9 @@ class MoviesFragment : Fragment(), CategoryListItemAdapter.OnMainClick {
         intent.putExtra("type", type)
         intent.putExtra("id", id)
         startActivity(intent)
+    }
+
+    override fun onItemClick(homeItems: HomeItems) {
+        TODO("Not yet implemented")
     }
 }

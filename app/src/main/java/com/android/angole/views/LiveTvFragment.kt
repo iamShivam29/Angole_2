@@ -17,7 +17,7 @@ import com.android.angole.databinding.FragmentLiveTvBinding
 import com.android.angole.models.HomeItems
 import com.android.angole.viewmodels.StreamViewModel
 
-class LiveTvFragment : Fragment(), CategoryListItemAdapter.OnMainClick {
+class LiveTvFragment : Fragment(), CategoryListItemAdapter.OnMainClick, MainRecyclerAdapter.OnClickEvent {
     private var binding: FragmentLiveTvBinding? = null
     private var handler: Handler? = null
     private var streamViewModel: StreamViewModel? = null
@@ -79,7 +79,7 @@ class LiveTvFragment : Fragment(), CategoryListItemAdapter.OnMainClick {
                         }
 
                         if (liveTvData.isNotEmpty()){
-                            liveTvAdapter = MainRecyclerAdapter(requireContext(), liveTvData, this)
+                            liveTvAdapter = MainRecyclerAdapter(requireContext(), liveTvData, this,this)
                             binding?.rvMovies?.adapter = liveTvAdapter
                         }else{
                             Toast.makeText(requireContext(), "Data Not found", Toast.LENGTH_SHORT).show()
@@ -112,6 +112,10 @@ class LiveTvFragment : Fragment(), CategoryListItemAdapter.OnMainClick {
     }
 
     override fun onItemClick(type: String, id: Int) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onItemClick(homeItems: HomeItems) {
         TODO("Not yet implemented")
     }
 }

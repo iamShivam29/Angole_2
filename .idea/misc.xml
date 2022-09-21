@@ -48,6 +48,7 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_player.xml" value="0.2923076923076923" />
         <entry key="app/src/main/res/layout/activity_profile.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_see_more.xml" value="0.2923076923076923" />
         <entry key="app/src/main/res/layout/activity_select_avatar.xml" value="0.18" />
         <entry key="app/src/main/res/layout/activity_series_video_selected.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_sign_in.xml" value="0.2" />
@@ -76,6 +77,7 @@
         <entry key="app/src/main/res/layout/player_controller.xml" value="0.22" />
         <entry key="app/src/main/res/layout/season_item_view.xml" value="0.2914529914529915" />
         <entry key="app/src/main/res/layout/suggestion_item_placeholder.xml" value="0.2923076923076923" />
+        <entry key="app/src/main/res/layout/thumbnail_grid_item_view.xml" value="0.2914529914529915" />
         <entry key="app/src/main/res/layout/thumbnail_item_placeholder.xml" value="0.2914529914529915" />
         <entry key="app/src/main/res/layout/thumbnail_item_view.xml" value="0.22" />
         <entry key="app/src/main/res/menu/menu_main.xml" value="0.25948406676783003" />
