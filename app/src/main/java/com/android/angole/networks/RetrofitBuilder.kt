@@ -1,5 +1,6 @@
 package com.android.angole.networks
 
+import com.android.angole.utils.Constants
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -17,7 +18,7 @@ class RetrofitBuilder {
             .readTimeout(30, TimeUnit.SECONDS)
             .build()
 
-        val baseUrl = "http://139.59.60.119:3000/v1/"
+        val baseUrl = "${Constants.BASE_URL}v1/"
         val retrofitBuilder = Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
             .baseUrl(baseUrl)
@@ -37,7 +38,7 @@ class RetrofitBuilder {
             .readTimeout(15, TimeUnit.SECONDS)
             .build()
 
-        val baseUrl = "http://139.59.60.119:3000/v1/user/"
+        val baseUrl = "${Constants.BASE_URL}v1/"
         val retrofitBuilder = Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
             .baseUrl(baseUrl)

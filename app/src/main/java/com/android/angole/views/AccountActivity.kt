@@ -21,6 +21,10 @@ class AccountActivity : AppCompatActivity() {
         binding?.tvSubscription?.setOnClickListener {
             startActivity(Intent(this, SubscriptionActivity::class.java))
         }
+
+        binding?.tvChangePassword?.setOnClickListener {
+            startActivity(Intent(this, ChangeDetailsActivity::class.java))
+        }
     }
 
 }

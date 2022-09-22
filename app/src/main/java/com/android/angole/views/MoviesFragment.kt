@@ -24,6 +24,7 @@ class MoviesFragment : Fragment(), CategoryListItemAdapter.OnMainClick, MainRecy
     private var streamViewModel: StreamViewModel? = null
     private var moviesAdapter: MainRecyclerAdapter? = null
     private var moviesData = listOf<HomeItems>()
+    private var isLooping = false
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
@@ -47,16 +48,11 @@ class MoviesFragment : Fragment(), CategoryListItemAdapter.OnMainClick, MainRecy
     }
 
     private fun looperForFlipper(){
-//        if (position < 5){
-//
-//        }
-
         handler?.postDelayed({
             activity?.isFinishing?.let {
                 if (!it) {
                     binding?.flipper?.setInAnimation(requireContext(), R.anim.fade_in)
                     binding?.flipper?.setOutAnimation(requireContext(), R.anim.fade_out)
-//                    position += 1
 
                     binding?.flipper?.showNext()
                     looperForFlipper()
@@ -110,7 +106,10 @@ class MoviesFragment : Fragment(), CategoryListItemAdapter.OnMainClick, MainRecy
     override fun onResume() {
         super.onResume()
 
-        looperForFlipper()
+        if (!isLooping) {
+            looperForFlipper()
+            isLooping = true
+        }
     }
 
     override fun onItemClick(type: String, id: Int) {

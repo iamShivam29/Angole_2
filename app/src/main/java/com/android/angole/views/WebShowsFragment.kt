@@ -25,6 +25,7 @@ class WebShowsFragment : Fragment(), CategoryListItemAdapter.OnMainClick, MainRe
     private var streamViewModel: StreamViewModel? = null
     private var webAdapter: MainRecyclerAdapter? = null
     private var seriesData = listOf<HomeItems>()
+    private var isLooping = false
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
@@ -46,16 +47,11 @@ class WebShowsFragment : Fragment(), CategoryListItemAdapter.OnMainClick, MainRe
     }
 
     private fun looperForFlipper(){
-//        if (position < 5){
-//
-//        }
-
         handler?.postDelayed({
             activity?.isFinishing?.let {
                 if (!it) {
                     binding?.flipper?.setInAnimation(requireContext(), R.anim.fade_in)
                     binding?.flipper?.setOutAnimation(requireContext(), R.anim.fade_out)
-//                    position += 1
 
                     binding?.flipper?.showNext()
                     looperForFlipper()
@@ -109,7 +105,10 @@ class WebShowsFragment : Fragment(), CategoryListItemAdapter.OnMainClick, MainRe
     override fun onResume() {
         super.onResume()
 
-        looperForFlipper()
+        if (!isLooping) {
+            looperForFlipper()
+            isLooping = true
+        }
     }
 
     override fun onItemClick(type: String, id: Int) {

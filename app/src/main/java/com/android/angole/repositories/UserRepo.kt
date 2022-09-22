@@ -1,8 +1,6 @@
 package com.android.angole.repositories
 
-import com.android.angole.models.LoginData
-import com.android.angole.models.RegisterData
-import com.android.angole.models.VerifyData
+import com.android.angole.models.*
 import com.android.angole.networks.RetrofitBuilder
 import com.android.angole.utils.Resource
 import com.android.angole.utils.SafeApiRequest
@@ -27,5 +25,13 @@ class UserRepo: SafeApiRequest() {
 
     suspend fun resetPasswordBeforeLogin(authToken: String, passwordDetails: HashMap<String, String>): Resource<VerifyData>{
         return apiRequest { RetrofitBuilder().userService().resetPasswordBeforeLogin(authToken, passwordDetails) }
+    }
+
+    suspend fun resetPasswordAfterLogin(authToken: String, passwordDetails: HashMap<String, String>): Resource<VerifyData>{
+        return apiRequest { RetrofitBuilder().userService().resetPasswordAfterLogin(authToken, passwordDetails) }
+    }
+
+    suspend fun getAvatars(): Resource<AvatarData>{
+        return apiRequest { RetrofitBuilder().userService().getAvatars() }
     }
 }

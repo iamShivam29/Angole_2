@@ -123,6 +123,9 @@ class SignUpActivity : AppCompatActivity() {
         }else if (password != confirmPassword){
             isValid = false
             binding?.etPassword?.error = "Password should match"
+        }else if (password.contains(" ")){
+            isValid = false
+            binding?.etPassword?.error = "Empty space not allowed"
         }
 
         if (confirmPassword.isNullOrEmpty()){
@@ -131,6 +134,9 @@ class SignUpActivity : AppCompatActivity() {
         }else if (confirmPassword != password){
             isValid = false
             binding?.etConfirmPassword?.error = "Password should match"
+        }else if (confirmPassword.contains(" ")){
+            isValid = false
+            binding?.etPassword?.error = "Empty space not allowed"
         }
 
         return isValid

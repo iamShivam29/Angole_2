@@ -41,7 +41,8 @@
         <entry key="app/src/main/res/drawable/suggestion_main_foreground.xml" value="0.22" />
         <entry key="app/src/main/res/drawable/textinput_round_background.xml" value="0.282" />
         <entry key="app/src/main/res/drawable/welcome_image_foreground.xml" value="0.1205" />
-        <entry key="app/src/main/res/layout/activity_account.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_account.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_change_details.xml" value="0.2923076923076923" />
         <entry key="app/src/main/res/layout/activity_change_mail.xml" value="0.25948406676783003" />
         <entry key="app/src/main/res/layout/activity_change_main.xml" value="0.25948406676783003" />
         <entry key="app/src/main/res/layout/activity_edit_profile.xml" value="0.25" />
