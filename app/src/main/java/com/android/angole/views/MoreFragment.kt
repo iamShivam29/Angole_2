@@ -2,15 +2,11 @@ package com.android.angole.views
 
 import android.app.AlertDialog
 import android.content.Intent
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
-import com.android.angole.R
 import com.android.angole.config.AuthConfig
 import com.android.angole.databinding.AlertDialogLayoutBinding
 import com.android.angole.databinding.FragmentMoreBinding
@@ -33,7 +29,7 @@ class MoreFragment : Fragment() {
         }
 
         binding?.lvEditProfile?.setOnClickListener {
-            startActivity(Intent(requireContext(), EditProfile::class.java))
+            startActivity(Intent(requireContext(), EditProfileActivity::class.java))
         }
 
         binding?.lvSignOut?.setOnClickListener {
@@ -60,8 +56,8 @@ class MoreFragment : Fragment() {
             authConfig.setProfile("", false)
 
             val intent = Intent(requireContext(), SignInActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
             startActivity(intent)
+            activity?.finish()
         }
 
         binding.btnCancel.setOnClickListener {

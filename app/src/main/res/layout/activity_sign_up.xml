@@ -80,7 +80,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:background="@drawable/textinput_round_background"
-                android:hint="User Name"
+                android:hint="Username"
                 android:maxLines="1"
                 android:paddingStart="16dp"
                 android:paddingTop="10dp"
@@ -236,6 +236,16 @@
         app:layout_constraintBottom_toTopOf="@+id/imageView5"
         app:layout_constraintEnd_toEndOf="@+id/detailsScrollView"
         app:layout_constraintStart_toStartOf="@+id/detailsScrollView" />
+
+    <ProgressBar
+        android:id="@+id/loadingProgress"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/btnSignUp"
+        app:layout_constraintEnd_toEndOf="@+id/btnSignUp"
+        app:layout_constraintStart_toStartOf="@+id/btnSignUp"
+        app:layout_constraintTop_toTopOf="@+id/btnSignUp" />
 </androidx.constraintlayout.motion.widget.MotionLayout>
 
 

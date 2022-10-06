@@ -44,8 +44,8 @@ class VerifyEmailActivity : AppCompatActivity() {
                 binding?.etOtp?.error = "Enter valid otp"
             }else{
                 binding?.btnNext?.isEnabled = false
-                binding?.btnNext?.backgroundTintList = ContextCompat.getColorStateList(this, R.color.gray)
-                binding?.progressBarOne?.visibility = View.VISIBLE
+                binding?.btnNext?.background = ContextCompat.getDrawable(this, R.color.gray)
+                binding?.progressBarOtp?.visibility = View.VISIBLE
                 verifyOtp()
             }
         }
@@ -57,6 +57,9 @@ class VerifyEmailActivity : AppCompatActivity() {
             }else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
                 binding?.etEmail?.error = "Email is not valid"
             }else{
+                binding?.btnNext?.isEnabled = false
+                binding?.btnNext?.background = ContextCompat.getDrawable(this, R.color.gray)
+                binding?.progressBarEmail?.visibility = View.VISIBLE
                 sendOtp()
             }
         }
@@ -66,6 +69,9 @@ class VerifyEmailActivity : AppCompatActivity() {
             if (password.isEmpty()){
                 binding?.etPassword?.error = "Password is required"
             }else{
+                binding?.btnContinue?.isEnabled = false
+                binding?.btnContinue?.background = ContextCompat.getDrawable(this, R.color.gray)
+                binding?.progressBarPassword?.visibility = View.VISIBLE
                 changePassword()
             }
         }
@@ -85,7 +91,7 @@ class VerifyEmailActivity : AppCompatActivity() {
                     val subCode = it.data.subCode
                     val message = it.message
                     if (subCode == 200) {
-                        reqId = it.data.items?.reqId
+                        reqId = it.data.items
                         binding?.flipper?.showNext()
                     } else {
                         Toast.makeText(this, "Something went wrong", Toast.LENGTH_SHORT).show()
@@ -97,6 +103,10 @@ class VerifyEmailActivity : AppCompatActivity() {
                         Toast.makeText(this, "Something went wrong", Toast.LENGTH_SHORT).show()
                     }
                 }
+
+                binding?.btnNext?.isEnabled = true
+                binding?.btnNext?.background = ContextCompat.getDrawable(this, R.drawable.button_main_background)
+                binding?.progressBarEmail?.visibility = View.GONE
             }
         }
     }
@@ -115,7 +125,7 @@ class VerifyEmailActivity : AppCompatActivity() {
                     val message = it.message
                     if (subCode == 200) {
                         token = it.data.items
-                        binding?.progressBarOne?.visibility = View.GONE
+                        binding?.progressBarOtp?.visibility = View.GONE
 
                         if (from == "Register") {
                             val authConfig = AuthConfig(this)
@@ -125,6 +135,7 @@ class VerifyEmailActivity : AppCompatActivity() {
                             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK
                             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
                             startActivity(intent)
+                            finish()
                         }else{
                             binding?.flipper?.showNext()
                         }
@@ -138,6 +149,10 @@ class VerifyEmailActivity : AppCompatActivity() {
                         Toast.makeText(this, "Something went wrong", Toast.LENGTH_SHORT).show()
                     }
                 }
+
+                binding?.btnContinue?.isEnabled = true
+                binding?.btnContinue?.background = ContextCompat.getDrawable(this, R.drawable.button_main_background)
+                binding?.progressBarPassword?.visibility = View.GONE
             }
         }
     }
@@ -163,6 +178,7 @@ class VerifyEmailActivity : AppCompatActivity() {
                         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK
                         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
                         startActivity(intent)
+                        finish()
                     } else {
                         Toast.makeText(this, "Something went wrong", Toast.LENGTH_SHORT).show()
                     }
@@ -173,6 +189,10 @@ class VerifyEmailActivity : AppCompatActivity() {
                         Toast.makeText(this, "Something went wrong", Toast.LENGTH_SHORT).show()
                     }
                 }
+
+                binding?.btnContinue?.isEnabled = true
+                binding?.btnContinue?.background = ContextCompat.getDrawable(this, R.drawable.button_main_background)
+                binding?.progressBarPassword?.visibility = View.GONE
             }
         }
     }

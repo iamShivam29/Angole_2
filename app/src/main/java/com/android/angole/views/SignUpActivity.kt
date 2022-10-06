@@ -3,10 +3,15 @@ package com.android.angole.views
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.util.Patterns
+import android.view.View
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
+import com.android.angole.R
 import com.android.angole.VerifyEmailActivity
 import com.android.angole.config.AuthConfig
 import com.android.angole.databinding.ActivitySignUpBinding
@@ -28,6 +33,9 @@ class SignUpActivity : AppCompatActivity() {
     private fun initView(){
         binding?.btnSignUp?.setOnClickListener {
             if(validateInput()){
+                it.isEnabled = false
+                it.background = ContextCompat.getDrawable(this, R.color.gray)
+                binding?.loadingProgress?.visibility = View.VISIBLE
                 doRegister()
             }
         }
@@ -59,6 +67,8 @@ class SignUpActivity : AppCompatActivity() {
                         val intent = Intent(this, VerifyEmailActivity::class.java)
                         intent.putExtra("from", "Register")
                         intent.putExtra("reqId", reqId)
+                        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+                        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK
                         startActivity(intent)
                         finish()
                     } else {
@@ -76,6 +86,10 @@ class SignUpActivity : AppCompatActivity() {
                         Toast.makeText(this, "Something went wrong", Toast.LENGTH_SHORT).show()
                     }
                 }
+
+                binding?.loadingProgress?.visibility = View.INVISIBLE
+                binding?.btnSignUp?.isEnabled = true
+                binding?.btnSignUp?.background = ContextCompat.getDrawable(this, R.drawable.button_main_background)
             }
         }
 
@@ -96,22 +110,22 @@ class SignUpActivity : AppCompatActivity() {
 
         if (userName.isNullOrEmpty()){
             isValid = false
-            binding?.etUserName?.error = "User is required"
+            binding?.etUserName?.error = "Username is required"
         }
 
         if (firstName.isNullOrEmpty()){
             isValid = false
-            binding?.etUserName?.error = "First Name is required"
+            binding?.etFirstName?.error = "First Name is required"
         }
 
         if (phoneNumber.isNullOrEmpty()){
             isValid = false
-            binding?.etUserName?.error = "Phone Number is required"
+            binding?.etPhoneNumber?.error = "Phone Number is required"
         }
 
         if (emailAddress.isNullOrEmpty()){
             isValid = false
-            binding?.etUserName?.error = "Email is required"
+            binding?.etEmail?.error = "Email is required"
         }else if (!Patterns.EMAIL_ADDRESS.matcher(emailAddress).matches()){
             binding?.etEmail?.error = "Email is not valid"
             isValid = false

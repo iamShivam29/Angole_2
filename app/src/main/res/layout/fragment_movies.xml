@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,389 +7,534 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".views.MoviesFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ViewFlipper
-            android:id="@+id/flipper"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:visibility="invisible"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:id="@+id/ivSuggestions_1"
-                    android:layout_width="0dp"
-                    android:layout_height="300dp"
-                    android:foreground="@drawable/suggestion_main_foreground"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/image_main"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/tvSuggestion_1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginBottom="16dp"
-                    android:text="Moonlight"
-                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@+id/ivSuggestions_1"
-                    app:layout_constraintStart_toStartOf="parent" />
-
-                <TextView
-                    android:id="@+id/tvGenre_1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
-                    android:background="@drawable/genre_batch_background"
-                    android:paddingStart="16dp"
-                    android:paddingTop="4dp"
-                    android:paddingEnd="16dp"
-                    android:paddingBottom="4dp"
-                    android:text="Drama"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/ivSuggestions_1" />
-
-                <ImageButton
-                    android:id="@+id/ibPlay_1"
-                    android:layout_width="72dp"
-                    android:layout_height="72dp"
-                    android:layout_marginEnd="16dp"
-                    android:background="@drawable/round_button_main"
-                    android:src="@drawable/ic_round_play_arrow_24"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/tvDescription_1" />
-
-                <TextView
-                    android:id="@+id/tvDescription_1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:ellipsize="end"
-                    android:maxLines="4"
-                    android:text="ajoidf japoidj asdpah dshap sdhadshfah dshffa sdhahds jaiosd fjaodsa hdha dhpa hadsjahf fal k djjafsdjf aj odjadh fahd flakhdslf haiuph ahd s"
-                    app:layout_constraintEnd_toStartOf="@+id/ibPlay_1"
-                    app:layout_constraintStart_toStartOf="@+id/tvGenre_1"
-                    app:layout_constraintTop_toBottomOf="@+id/tvGenre_1" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:id="@+id/ivSuggestions_2"
-                    android:layout_width="0dp"
-                    android:layout_height="300dp"
-                    android:foreground="@drawable/suggestion_main_foreground"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/image_2"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/tvSuggestion_2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginBottom="16dp"
-                    android:text="Dr Strange"
-                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@+id/ivSuggestions_2"
-                    app:layout_constraintStart_toStartOf="parent" />
-
-                <TextView
-                    android:id="@+id/tvGenre_2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
-                    android:background="@drawable/genre_batch_background"
-                    android:paddingStart="16dp"
-                    android:paddingTop="4dp"
-                    android:paddingEnd="16dp"
-                    android:paddingBottom="4dp"
-                    android:text="Drama"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/ivSuggestions_2" />
-
-                <ImageButton
-                    android:id="@+id/ibPlay_2"
-                    android:layout_width="72dp"
-                    android:layout_height="72dp"
-                    android:layout_marginEnd="16dp"
-                    android:background="@drawable/round_button_main"
-                    android:src="@drawable/ic_round_play_arrow_24"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/tvDescription_2" />
-
-                <TextView
-                    android:id="@+id/tvDescription_2"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:ellipsize="end"
-                    android:maxLines="4"
-                    android:text="ajoidf japoidj asdpah dshap sdhadshfah dshffa sdhahds jaiosd fjaodsa hdha dhpa hadsjahf fal k djjafsdjf aj odjadh fahd flakhdslf haiuph ahd s"
-                    app:layout_constraintEnd_toStartOf="@+id/ibPlay_2"
-                    app:layout_constraintStart_toStartOf="@+id/tvGenre_2"
-                    app:layout_constraintTop_toBottomOf="@+id/tvGenre_2" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:id="@+id/ivSuggestions_3"
-                    android:layout_width="0dp"
-                    android:layout_height="300dp"
-                    android:foreground="@drawable/suggestion_main_foreground"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/image_main"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/tvSuggestion_3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginBottom="16dp"
-                    android:text="Moonlight"
-                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@+id/ivSuggestions_3"
-                    app:layout_constraintStart_toStartOf="parent" />
-
-                <TextView
-                    android:id="@+id/tvGenre_3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
-                    android:background="@drawable/genre_batch_background"
-                    android:paddingStart="16dp"
-                    android:paddingTop="4dp"
-                    android:paddingEnd="16dp"
-                    android:paddingBottom="4dp"
-                    android:text="Drama"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/ivSuggestions_3" />
-
-                <ImageButton
-                    android:id="@+id/ibPlay_3"
-                    android:layout_width="72dp"
-                    android:layout_height="72dp"
-                    android:layout_marginEnd="16dp"
-                    android:background="@drawable/round_button_main"
-                    android:src="@drawable/ic_round_play_arrow_24"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/tvDescription_3" />
-
-                <TextView
-                    android:id="@+id/tvDescription_3"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:ellipsize="end"
-                    android:maxLines="4"
-                    android:text="ajoidf japoidj asdpah dshap sdhadshfah dshffa sdhahds jaiosd fjaodsa hdha dhpa hadsjahf fal k djjafsdjf aj odjadh fahd flakhdslf haiuph ahd s"
-                    app:layout_constraintEnd_toStartOf="@+id/ibPlay_3"
-                    app:layout_constraintStart_toStartOf="@+id/tvGenre_3"
-                    app:layout_constraintTop_toBottomOf="@+id/tvGenre_3" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:id="@+id/ivSuggestions_4"
-                    android:layout_width="0dp"
-                    android:layout_height="300dp"
-                    android:foreground="@drawable/suggestion_main_foreground"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/image_2"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/tvSuggestion_4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginBottom="16dp"
-                    android:text="Dr. Strange"
-                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@+id/ivSuggestions_4"
-                    app:layout_constraintStart_toStartOf="parent" />
-
-                <TextView
-                    android:id="@+id/tvGenre_4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
-                    android:background="@drawable/genre_batch_background"
-                    android:paddingStart="16dp"
-                    android:paddingTop="4dp"
-                    android:paddingEnd="16dp"
-                    android:paddingBottom="4dp"
-                    android:text="Drama"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/ivSuggestions_4" />
-
-                <ImageButton
-                    android:id="@+id/ibPlay_4"
-                    android:layout_width="72dp"
-                    android:layout_height="72dp"
-                    android:layout_marginEnd="16dp"
-                    android:background="@drawable/round_button_main"
-                    android:src="@drawable/ic_round_play_arrow_24"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/tvDescription_4" />
-
-                <TextView
-                    android:id="@+id/tvDescription_4"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:ellipsize="end"
-                    android:maxLines="4"
-                    android:text="ajoidf japoidj asdpah dshap sdhadshfah dshffa sdhahds jaiosd fjaodsa hdha dhpa hadsjahf fal k djjafsdjf aj odjadh fahd flakhdslf haiuph ahd s"
-                    app:layout_constraintEnd_toStartOf="@+id/ibPlay_4"
-                    app:layout_constraintStart_toStartOf="@+id/tvGenre_4"
-                    app:layout_constraintTop_toBottomOf="@+id/tvGenre_4" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:id="@+id/ivSuggestions_5"
-                    android:layout_width="0dp"
-                    android:layout_height="300dp"
-                    android:foreground="@drawable/suggestion_main_foreground"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/image_main"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/tvSuggestion_5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginBottom="16dp"
-                    android:text="Moonlight"
-                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@+id/ivSuggestions_5"
-                    app:layout_constraintStart_toStartOf="parent" />
-
-                <TextView
-                    android:id="@+id/tvGenre_5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
-                    android:background="@drawable/genre_batch_background"
-                    android:paddingStart="16dp"
-                    android:paddingTop="4dp"
-                    android:paddingEnd="16dp"
-                    android:paddingBottom="4dp"
-                    android:text="Drama"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/ivSuggestions_5" />
-
-                <ImageButton
-                    android:id="@+id/ibPlay_5"
-                    android:layout_width="72dp"
-                    android:layout_height="72dp"
-                    android:layout_marginEnd="16dp"
-                    android:background="@drawable/round_button_main"
-                    android:src="@drawable/ic_round_play_arrow_24"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/tvDescription_5" />
-
-                <TextView
-                    android:id="@+id/tvDescription_5"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:ellipsize="end"
-                    android:maxLines="4"
-                    android:text="ajoidf japoidj asdpah dshap sdhadshfah dshffa sdhahds jaiosd fjaodsa hdha dhpa hadsjahf fal k djjafsdjf aj odjadh fahd flakhdslf haiuph ahd s"
-                    app:layout_constraintEnd_toStartOf="@+id/ibPlay_5"
-                    app:layout_constraintStart_toStartOf="@+id/tvGenre_5"
-                    app:layout_constraintTop_toBottomOf="@+id/tvGenre_5" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </ViewFlipper>
-
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvMovies"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/mainItems"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            android:paddingBottom="4dp"
-            android:clipToPadding="false"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/flipper" />
+            android:layout_height="match_parent">
 
-        <com.facebook.shimmer.ShimmerFrameLayout
-            android:id="@+id/shimmerContainer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            <ViewFlipper
+                android:id="@+id/flipper"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/ivSuggestions_1"
+                        android:layout_width="0dp"
+                        android:layout_height="300dp"
+                        android:foreground="@drawable/suggestion_main_foreground"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_image_placeholder"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvSuggestion_1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:layout_marginStart="16dp"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="@+id/ivSuggestions_1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvSuggestion_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="8dp"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/ivSuggestions_1" />
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/tvGenre_1"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginStart="16dp"-->
+<!--                        android:layout_marginTop="8dp"-->
+<!--                        android:background="@drawable/genre_batch_background"-->
+<!--                        android:paddingStart="16dp"-->
+<!--                        android:paddingTop="4dp"-->
+<!--                        android:paddingEnd="16dp"-->
+<!--                        android:paddingBottom="4dp"-->
+<!--                        android:text="Drama"-->
+<!--                        android:textStyle="bold"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toBottomOf="@+id/ivSuggestions_1" />-->
+
+<!--                    <ImageButton-->
+<!--                        android:id="@+id/ibPlay_1"-->
+<!--                        android:layout_width="72dp"-->
+<!--                        android:layout_height="72dp"-->
+<!--                        android:layout_marginEnd="16dp"-->
+<!--                        android:background="@drawable/round_button_main"-->
+<!--                        android:src="@drawable/ic_round_play_arrow_24"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintTop_toTopOf="@+id/tvDescription_1" />-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/tvDescription_1"-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="8dp"-->
+<!--                        android:layout_marginEnd="8dp"-->
+<!--                        android:ellipsize="end"-->
+<!--                        android:maxLines="4"-->
+<!--                        android:text="ajoidf japoidj asdpah dshap sdhadshfah dshffa sdhahds jaiosd fjaodsa hdha dhpa hadsjahf fal k djjafsdjf aj odjadh fahd flakhdslf haiuph ahd s"-->
+<!--                        app:layout_constraintEnd_toStartOf="@+id/ibPlay_1"-->
+<!--                        app:layout_constraintStart_toStartOf="@+id/tvGenre_1"-->
+<!--                        app:layout_constraintTop_toBottomOf="@+id/tvGenre_1" />-->
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/ivSuggestions_2"
+                        android:layout_width="0dp"
+                        android:layout_height="300dp"
+                        android:foreground="@drawable/suggestion_main_foreground"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_image_placeholder"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvSuggestion_2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:layout_marginStart="16dp"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="@+id/ivSuggestions_2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvSuggestion_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="8dp"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/ivSuggestions_2" />
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/tvGenre_2"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginStart="16dp"-->
+<!--                        android:layout_marginTop="8dp"-->
+<!--                        android:background="@drawable/genre_batch_background"-->
+<!--                        android:paddingStart="16dp"-->
+<!--                        android:paddingTop="4dp"-->
+<!--                        android:paddingEnd="16dp"-->
+<!--                        android:paddingBottom="4dp"-->
+<!--                        android:text="Drama"-->
+<!--                        android:textStyle="bold"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toBottomOf="@+id/ivSuggestions_2" />-->
+
+<!--                    <ImageButton-->
+<!--                        android:id="@+id/ibPlay_2"-->
+<!--                        android:layout_width="72dp"-->
+<!--                        android:layout_height="72dp"-->
+<!--                        android:layout_marginEnd="16dp"-->
+<!--                        android:background="@drawable/round_button_main"-->
+<!--                        android:src="@drawable/ic_round_play_arrow_24"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintTop_toTopOf="@+id/tvDescription_2" />-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/tvDescription_2"-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="8dp"-->
+<!--                        android:layout_marginEnd="8dp"-->
+<!--                        android:ellipsize="end"-->
+<!--                        android:maxLines="4"-->
+<!--                        android:text="ajoidf japoidj asdpah dshap sdhadshfah dshffa sdhahds jaiosd fjaodsa hdha dhpa hadsjahf fal k djjafsdjf aj odjadh fahd flakhdslf haiuph ahd s"-->
+<!--                        app:layout_constraintEnd_toStartOf="@+id/ibPlay_2"-->
+<!--                        app:layout_constraintStart_toStartOf="@+id/tvGenre_2"-->
+<!--                        app:layout_constraintTop_toBottomOf="@+id/tvGenre_2" />-->
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/ivSuggestions_3"
+                        android:layout_width="0dp"
+                        android:layout_height="300dp"
+                        android:foreground="@drawable/suggestion_main_foreground"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_image_placeholder"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvSuggestion_3"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:layout_marginStart="16dp"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="@+id/ivSuggestions_3"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvSuggestion_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="8dp"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/ivSuggestions_3" />
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/tvGenre_3"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginStart="16dp"-->
+<!--                        android:layout_marginTop="8dp"-->
+<!--                        android:background="@drawable/genre_batch_background"-->
+<!--                        android:paddingStart="16dp"-->
+<!--                        android:paddingTop="4dp"-->
+<!--                        android:paddingEnd="16dp"-->
+<!--                        android:paddingBottom="4dp"-->
+<!--                        android:text="Drama"-->
+<!--                        android:textStyle="bold"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toBottomOf="@+id/ivSuggestions_3" />-->
+
+<!--                    <ImageButton-->
+<!--                        android:id="@+id/ibPlay_3"-->
+<!--                        android:layout_width="72dp"-->
+<!--                        android:layout_height="72dp"-->
+<!--                        android:layout_marginEnd="16dp"-->
+<!--                        android:background="@drawable/round_button_main"-->
+<!--                        android:src="@drawable/ic_round_play_arrow_24"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintTop_toTopOf="@+id/tvDescription_3" />-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/tvDescription_3"-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="8dp"-->
+<!--                        android:layout_marginEnd="8dp"-->
+<!--                        android:ellipsize="end"-->
+<!--                        android:maxLines="4"-->
+<!--                        android:text="ajoidf japoidj asdpah dshap sdhadshfah dshffa sdhahds jaiosd fjaodsa hdha dhpa hadsjahf fal k djjafsdjf aj odjadh fahd flakhdslf haiuph ahd s"-->
+<!--                        app:layout_constraintEnd_toStartOf="@+id/ibPlay_3"-->
+<!--                        app:layout_constraintStart_toStartOf="@+id/tvGenre_3"-->
+<!--                        app:layout_constraintTop_toBottomOf="@+id/tvGenre_3" />-->
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/ivSuggestions_4"
+                        android:layout_width="0dp"
+                        android:layout_height="300dp"
+                        android:foreground="@drawable/suggestion_main_foreground"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_image_placeholder"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvSuggestion_4"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:layout_marginStart="16dp"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="@+id/ivSuggestions_4"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvSuggestion_4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="8dp"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/ivSuggestions_4" />
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/tvGenre_4"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginStart="16dp"-->
+<!--                        android:layout_marginTop="8dp"-->
+<!--                        android:background="@drawable/genre_batch_background"-->
+<!--                        android:paddingStart="16dp"-->
+<!--                        android:paddingTop="4dp"-->
+<!--                        android:paddingEnd="16dp"-->
+<!--                        android:paddingBottom="4dp"-->
+<!--                        android:text="Drama"-->
+<!--                        android:textStyle="bold"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toBottomOf="@+id/ivSuggestions_4" />-->
+
+<!--                    <ImageButton-->
+<!--                        android:id="@+id/ibPlay_4"-->
+<!--                        android:layout_width="72dp"-->
+<!--                        android:layout_height="72dp"-->
+<!--                        android:layout_marginEnd="16dp"-->
+<!--                        android:background="@drawable/round_button_main"-->
+<!--                        android:src="@drawable/ic_round_play_arrow_24"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintTop_toTopOf="@+id/tvDescription_4" />-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/tvDescription_4"-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="8dp"-->
+<!--                        android:layout_marginEnd="8dp"-->
+<!--                        android:ellipsize="end"-->
+<!--                        android:maxLines="4"-->
+<!--                        android:text="ajoidf japoidj asdpah dshap sdhadshfah dshffa sdhahds jaiosd fjaodsa hdha dhpa hadsjahf fal k djjafsdjf aj odjadh fahd flakhdslf haiuph ahd s"-->
+<!--                        app:layout_constraintEnd_toStartOf="@+id/ibPlay_4"-->
+<!--                        app:layout_constraintStart_toStartOf="@+id/tvGenre_4"-->
+<!--                        app:layout_constraintTop_toBottomOf="@+id/tvGenre_4" />-->
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/ivSuggestions_5"
+                        android:layout_width="0dp"
+                        android:layout_height="300dp"
+                        android:foreground="@drawable/suggestion_main_foreground"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_image_placeholder"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvSuggestion_5"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:layout_marginStart="16dp"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="@+id/ivSuggestions_5"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvSuggestion_5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="8dp"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/ivSuggestions_5" />
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/tvGenre_5"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginStart="16dp"-->
+<!--                        android:layout_marginTop="8dp"-->
+<!--                        android:background="@drawable/genre_batch_background"-->
+<!--                        android:paddingStart="16dp"-->
+<!--                        android:paddingTop="4dp"-->
+<!--                        android:paddingEnd="16dp"-->
+<!--                        android:paddingBottom="4dp"-->
+<!--                        android:text="Drama"-->
+<!--                        android:textStyle="bold"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toBottomOf="@+id/ivSuggestions_5" />-->
+
+<!--                    <ImageButton-->
+<!--                        android:id="@+id/ibPlay_5"-->
+<!--                        android:layout_width="72dp"-->
+<!--                        android:layout_height="72dp"-->
+<!--                        android:layout_marginEnd="16dp"-->
+<!--                        android:background="@drawable/round_button_main"-->
+<!--                        android:src="@drawable/ic_round_play_arrow_24"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintTop_toTopOf="@+id/tvDescription_5" />-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/tvDescription_5"-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="8dp"-->
+<!--                        android:layout_marginEnd="8dp"-->
+<!--                        android:ellipsize="end"-->
+<!--                        android:maxLines="4"-->
+<!--                        android:text="ajoidf japoidj asdpah dshap sdhadshfah dshffa sdhahds jaiosd fjaodsa hdha dhpa hadsjahf fal k djjafsdjf aj odjadh fahd flakhdslf haiuph ahd s"-->
+<!--                        app:layout_constraintEnd_toStartOf="@+id/ibPlay_5"-->
+<!--                        app:layout_constraintStart_toStartOf="@+id/tvGenre_5"-->
+<!--                        app:layout_constraintTop_toBottomOf="@+id/tvGenre_5" />-->
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </ViewFlipper>
 
             <LinearLayout
+                android:id="@+id/sectionMyList"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/flipper">
 
-                <include layout="@layout/suggestion_item_placeholder" />
-                <include layout="@layout/category_item_placeholder"/>
-                <include layout="@layout/category_item_placeholder"/>
-                <include layout="@layout/category_item_placeholder"/>
-                <include layout="@layout/category_item_placeholder"/>
+                <TextView
+                    android:id="@+id/tvCategoryName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginTop="32dp"
+                    android:text="My List"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                    android:textStyle="bold" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvCategoryItem"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="16dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
             </LinearLayout>
-        </com.facebook.shimmer.ShimmerFrameLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.core.widget.NestedScrollView>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvMovies"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:paddingBottom="4dp"
+                android:clipToPadding="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sectionMyList" />
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/shimmerContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <include layout="@layout/suggestion_item_placeholder" />
+                    <include layout="@layout/category_item_placeholder"/>
+                    <include layout="@layout/category_item_placeholder"/>
+                    <include layout="@layout/category_item_placeholder"/>
+                    <include layout="@layout/category_item_placeholder"/>
+                </LinearLayout>
+            </com.facebook.shimmer.ShimmerFrameLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <LinearLayout
+        android:id="@+id/lvInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/ivInfo"
+            android:layout_width="250dp"
+            android:layout_height="250dp" />
+
+        <TextView
+            android:id="@+id/tvInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnRetry"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/button_main_background"
+            android:text="Retry"
+            app:backgroundTint="@null" />
+    </LinearLayout>
+</FrameLayout>
+
 

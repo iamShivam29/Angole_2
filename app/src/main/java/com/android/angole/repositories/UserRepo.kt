@@ -15,7 +15,7 @@ class UserRepo: SafeApiRequest() {
         return apiRequest { RetrofitBuilder().userService().registerUser(registerDetails) }
     }
 
-    suspend fun sendOtp(requestOtpDetails: HashMap<String, String>): Resource<RegisterData>{
+    suspend fun sendOtp(requestOtpDetails: HashMap<String, String>): Resource<VerifyData>{
         return apiRequest { RetrofitBuilder().userService().sendOtp(requestOtpDetails) }
     }
 

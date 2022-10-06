@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/batch_placeholder.xml" value="0.197" />
+        <entry key="app/src/main/res/drawable/button_gradient_stroke.xml" value="0.2235" />
         <entry key="app/src/main/res/drawable/button_main_background.xml" value="0.1405" />
         <entry key="app/src/main/res/drawable/circular_button_placeholder.xml" value="0.16" />
         <entry key="app/src/main/res/drawable/curv_gradient_background.xml" value="0.282" />
@@ -64,7 +65,7 @@
         <entry key="app/src/main/res/layout/category_item_placeholder.xml" value="0.2914529914529915" />
         <entry key="app/src/main/res/layout/episode_item_placeholder.xml" value="0.2923076923076923" />
         <entry key="app/src/main/res/layout/episode_item_view.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_live_tv.xml" value="0.25948406676783003" />
         <entry key="app/src/main/res/layout/fragment_monthly.xml" value="0.2923076923076923" />
         <entry key="app/src/main/res/layout/fragment_more.xml" value="0.25948406676783003" />
@@ -72,6 +73,7 @@
         <entry key="app/src/main/res/layout/fragment_quarterly.xml" value="0.2923076923076923" />
         <entry key="app/src/main/res/layout/fragment_web_shows.xml" value="0.25948406676783003" />
         <entry key="app/src/main/res/layout/fragment_yearly.xml" value="0.25948406676783003" />
+        <entry key="app/src/main/res/layout/genre_item_view.xml" value="0.2914529914529915" />
         <entry key="app/src/main/res/layout/home_item_layout.xml" value="0.2914529914529915" />
         <entry key="app/src/main/res/layout/movie_detail_placeholder.xml" value="0.2914529914529915" />
         <entry key="app/src/main/res/layout/pagination_loader_item.xml" value="0.2914529914529915" />

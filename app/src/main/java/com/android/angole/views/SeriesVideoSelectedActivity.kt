@@ -15,6 +15,7 @@ import com.android.angole.databinding.ActivitySeriesVideoSelectedBinding
 import com.android.angole.models.Episodes
 import com.android.angole.models.SeriesInfo
 import com.android.angole.models.ShowItems
+import com.android.angole.utils.Constants
 import com.android.angole.viewmodels.StreamViewModel
 import com.bumptech.glide.Glide
 
@@ -23,6 +24,9 @@ class SeriesVideoSelectedActivity : AppCompatActivity(), SeasonRecyclerAdapter.O
     private var streamViewModel: StreamViewModel? = null
     private var streamId: Int? = null
     private var detailsData: ShowItems? = null
+    private var isFeatured = false
+    private var isAdded = false              // this variable will check if the item has added,if yes we pass this through setResult with intent
+    private var isRemoved = false            // this variable will check if the item has removed, if yes we pass this through setResult with intent
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,6 +40,8 @@ class SeriesVideoSelectedActivity : AppCompatActivity(), SeasonRecyclerAdapter.O
     private fun initView(){
         streamViewModel = ViewModelProvider(this)[StreamViewModel::class.java]
 
+        isFeatured = intent.getBooleanExtra("FromHome", false)
+
         binding?.shimmerContainer?.visibility = View.VISIBLE
         binding?.shimmerContainer2?.visibility = View.VISIBLE
         binding?.shimmerContainer?.startShimmer()
@@ -44,12 +50,27 @@ class SeriesVideoSelectedActivity : AppCompatActivity(), SeasonRecyclerAdapter.O
         loadData()
 
         binding?.ibPlaySelected?.setOnClickListener {
-            val intent = Intent(this, PlayerActivity::class.java)
-            startActivity(intent)
+            detailsData?.let {
+                val intent = Intent(this, PlayerActivity::class.java)
+                intent.putExtra("videoUri", it.seriesInfo!![0].episodes!![0].playableUrl)
+                intent.putExtra("videoName", it.seriesInfo[0].episodes!![0].title)
+                startActivity(intent)
+            }
         }
 
         binding?.ibLike?.setOnClickListener {
             setLikeUnlike()
+        }
+
+        binding?.btnRetry?.setOnClickListener {
+            binding?.shimmerContainer?.visibility = View.VISIBLE
+            binding?.shimmerContainer2?.visibility = View.VISIBLE
+            binding?.shimmerContainer?.startShimmer()
+            binding?.shimmerContainer2?.startShimmer()
+
+            binding?.lvInfo?.visibility = View.GONE
+
+            loadData()
         }
     }
 
@@ -58,7 +79,7 @@ class SeriesVideoSelectedActivity : AppCompatActivity(), SeasonRecyclerAdapter.O
         val authToken = "Bearer $token"
 
         streamId = intent.getIntExtra("id", 0)
-        streamViewModel?.getShowDetails(authToken, streamId!!)
+        streamViewModel?.getShowDetails(authToken, streamId!!, isFeatured)
 
         streamViewModel?.showDetailData?.observe(this){
             it?.let {
@@ -72,23 +93,38 @@ class SeriesVideoSelectedActivity : AppCompatActivity(), SeasonRecyclerAdapter.O
                             setDetails(detailsData!!)
                             setSeasons(it.data.items?.seriesInfo)
                         }else{
-                            Toast.makeText(this, "Data not found", Toast.LENGTH_SHORT).show()
+//                            Toast.makeText(this, "Data not found", Toast.LENGTH_SHORT).show()
+                            binding?.lvInfo?.visibility = View.VISIBLE
+                            binding?.ivInfo?.setImageResource(R.drawable.no_data_found)
+                            binding?.tvInfo?.text = "No data found"
                         }
+                    }else if (subCode == 404){
+                        binding?.lvInfo?.visibility = View.VISIBLE
+                        binding?.ivInfo?.setImageResource(R.drawable.no_data_found)
+                        binding?.tvInfo?.text = "No data found"
                     }else{
-                        Toast.makeText(this, "Something went wrong", Toast.LENGTH_SHORT).show()
+//                        Toast.makeText(this, "Something went wrong", Toast.LENGTH_SHORT).show()
+                        binding?.lvInfo?.visibility = View.VISIBLE
+                        binding?.ivInfo?.setImageResource(R.drawable.no_data_found)
+                        binding?.tvInfo?.text = "Something went wrong"
                     }
 
                 }else{
-                    Log.i("Series", "Exception is ${it.message}")
-                    if (!it.message.isNullOrEmpty()) {
-                        Toast.makeText(this, it.message, Toast.LENGTH_SHORT).show()
-                    }else{
-                        Toast.makeText(this, "Something went wrong", Toast.LENGTH_SHORT).show()
-                    }
+//                    if (!it.message.isNullOrEmpty()) {
+//                        Toast.makeText(this, it.message, Toast.LENGTH_SHORT).show()
+//                    }else{
+//                        Toast.makeText(this, "Something went wrong", Toast.LENGTH_SHORT).show()
+//                    }
+
+                    binding?.lvInfo?.visibility = View.VISIBLE
+                    binding?.ivInfo?.setImageResource(R.drawable.no_data_found)
+                    binding?.tvInfo?.text = "Something went wrong"
                 }
 
                 binding?.shimmerContainer?.visibility = View.GONE
                 binding?.shimmerContainer?.stopShimmer()
+                binding?.shimmerContainer2?.visibility = View.GONE
+                binding?.shimmerContainer2?.stopShimmer()
             }
         }
     }
@@ -197,9 +233,20 @@ class SeriesVideoSelectedActivity : AppCompatActivity(), SeasonRecyclerAdapter.O
             val authConfig = AuthConfig(this)
             val authToken = "Bearer " + authConfig.getToken()
             val favDetails = HashMap<String, Any>()
-            favDetails["cover"] = showItem.cover!!
-            favDetails["id"] = intent.getIntExtra("id", 0)
-            favDetails["type"] = "SHOWS"
+
+            if(detailsData?.isFavourie!!) {
+                Log.i("Series", "is Favourite")
+                favDetails["id"] = intent.getIntExtra("id", 0)
+                favDetails["forRemove"] = true
+                favDetails["isFeatured"] = isFeatured
+            }else{
+                Log.i("Series", "is not Favourite")
+                favDetails["cover"] = showItem.cover!!
+                favDetails["id"] = intent.getIntExtra("id", 0)
+                favDetails["type"] = "SHOWS"
+                favDetails["forRemove"] = false
+                favDetails["isFeatured"] = isFeatured
+            }
 
             streamViewModel?.setLikeUnlike(authToken, favDetails)
             streamViewModel?.favData?.observe(this){
@@ -210,8 +257,14 @@ class SeriesVideoSelectedActivity : AppCompatActivity(), SeasonRecyclerAdapter.O
                         if (status){
                             if (subCode == 201){
                                 binding?.ibLike?.setImageResource(R.drawable.ic_heart_color)
-                            }else{
+                                detailsData?.isFavourie = true
+                                isAdded = true
+                                isRemoved = false
+                            }else if (subCode == 200){
                                 binding?.ibLike?.setImageResource(R.drawable.ic_heart)
+                                detailsData?.isFavourie = false
+                                isAdded = false
+                                isRemoved = true
                             }
                         }else{
                             Toast.makeText(this, "Something went wrong", Toast.LENGTH_SHORT).show()
@@ -230,4 +283,17 @@ class SeriesVideoSelectedActivity : AppCompatActivity(), SeasonRecyclerAdapter.O
             }
         }
     }
+
+    override fun onBackPressed() {
+        val what = if (isAdded) Constants.CONST_ADDED else Constants.CONST_REMOVED
+
+        val intent = Intent()
+        intent.putExtra("into", Constants.CONST_TYPE_SHOWS)
+        intent.putExtra("what", what)
+        intent.putExtra("id", streamId)
+        setResult(RESULT_OK, intent)
+
+        finish()
+    }
+
 }

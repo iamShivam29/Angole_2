@@ -21,7 +21,7 @@ abstract class SafeApiRequest {
             }catch (e: IOException){
                 Resource.Error("Please check your internet connection")
             }catch (e: Exception){
-                Resource.Error("${e.localizedMessage}")
+                Resource.Error("Something went wrong ")
             }
         }
     }

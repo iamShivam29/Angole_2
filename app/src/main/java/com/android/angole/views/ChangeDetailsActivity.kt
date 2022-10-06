@@ -2,8 +2,11 @@ package com.android.angole.views
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
+import com.android.angole.R
 import com.android.angole.config.AuthConfig
 import com.android.angole.databinding.ActivityChangeDetailsBinding
 import com.android.angole.viewmodels.UserViewModel
@@ -28,6 +31,13 @@ class ChangeDetailsActivity : AppCompatActivity() {
 
         binding?.btnSave?.setOnClickListener {
             if (validateInput()){
+                binding?.loadingProgress?.visibility = View.VISIBLE
+                binding?.btnSave?.isEnabled = false
+                binding?.btnSave?.background = ContextCompat.getDrawable(this, R.color.gray)
+
+                binding?.etCurrentPassword?.clearFocus()
+                binding?.etNewPassword?.clearFocus()
+                binding?.etConfirmNewPassword?.clearFocus()
                 resetPassword()
             }
         }
@@ -46,8 +56,12 @@ class ChangeDetailsActivity : AppCompatActivity() {
         userViewModel?.passwordData?.observe(this){
             it?.let {
                 if (it.data != null) {
-                    val message = it.message
+                    val message = it.data.message
                     Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+
+                    binding?.etCurrentPassword?.setText("")
+                    binding?.etNewPassword?.setText("")
+                    binding?.etConfirmNewPassword?.setText("")
                 } else {
                     if (!it.message.isNullOrEmpty()) {
                         Toast.makeText(this, it.message, Toast.LENGTH_SHORT).show()
@@ -56,6 +70,10 @@ class ChangeDetailsActivity : AppCompatActivity() {
                     }
                 }
             }
+
+            binding?.loadingProgress?.visibility = View.GONE
+            binding?.btnSave?.isEnabled = true
+            binding?.btnSave?.background = ContextCompat.getDrawable(this, R.drawable.button_main_background)
         }
     }
 
@@ -84,6 +102,11 @@ class ChangeDetailsActivity : AppCompatActivity() {
         }else if (confirmNewPassword != newPassword){
             isValid = false
             binding?.etConfirmNewPassword?.error = "Password should match"
+        }
+
+        if(oldPassword == newPassword){
+            isValid = false
+            Toast.makeText(this, "Your current password and new password are similar", Toast.LENGTH_SHORT).show()
         }
 
         return isValid

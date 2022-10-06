@@ -6,10 +6,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.android.angole.databinding.HomeItemLayoutBinding
+import com.android.angole.models.CategoryData
 import com.android.angole.models.HomeItems
 import com.bumptech.glide.Glide
 
-class MainRecyclerAdapter(val context: Context, private val itemList: List<HomeItems>, private val onMainClick: CategoryListItemAdapter.OnMainClick, val onClickEvent: OnClickEvent): RecyclerView.Adapter<MainRecyclerAdapter.MainItemViewHolder>() {
+class MainRecyclerAdapter(val context: Context, private val itemList: List<CategoryData>, private val onMainClick: CategoryListItemAdapter.OnMainClick, val onClickEvent: OnClickEvent): RecyclerView.Adapter<MainRecyclerAdapter.MainItemViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainItemViewHolder {
         val inflater = LayoutInflater.from(context)
         val binding = HomeItemLayoutBinding.inflate(inflater)
@@ -31,13 +32,13 @@ class MainRecyclerAdapter(val context: Context, private val itemList: List<HomeI
     inner class MainItemViewHolder(val binding: HomeItemLayoutBinding): RecyclerView.ViewHolder(binding.root){
         init {
             binding.btnSeeMore.setOnClickListener {
-                val homeItems = itemList[absoluteAdapterPosition]
-                onClickEvent.onItemClick(homeItems)
+                val categoryData = itemList[absoluteAdapterPosition]
+                onClickEvent.onItemClick(categoryData)
             }
         }
     }
 
     interface OnClickEvent{
-        fun onItemClick(homeItems: HomeItems)
+        fun onItemClick(categoryData: CategoryData)
     }
 }

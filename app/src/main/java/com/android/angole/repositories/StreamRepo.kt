@@ -19,16 +19,16 @@ class StreamRepo: SafeApiRequest() {
         return apiRequest { RetrofitBuilder().streamService().getMovies(authToken) }
     }
 
-    suspend fun getLiveTv(authToken: String): Resource<HomeData>{
+    suspend fun getLiveTv(authToken: String): Resource<LiveTvData>{
         return apiRequest { RetrofitBuilder().streamService().getLiveTv(authToken) }
     }
 
-    suspend fun getMovieDetails(authToken: String, id: Int): Resource<MovieDetails>{
-        return apiRequest { RetrofitBuilder().streamService().getMovieDetails(authToken, id) }
+    suspend fun getMovieDetails(authToken: String, id: Int, isFeatured: Boolean): Resource<MovieDetails>{
+        return apiRequest { RetrofitBuilder().streamService().getMovieDetails(authToken, id, isFeatured) }
     }
 
-    suspend fun getShowDetails(authToken: String, id: Int): Resource<ShowDetails>{
-        return apiRequest { RetrofitBuilder().streamService().getShowDetails(authToken, id) }
+    suspend fun getShowDetails(authToken: String, id: Int, isFeatured: Boolean): Resource<ShowDetails>{
+        return apiRequest { RetrofitBuilder().streamService().getShowDetails(authToken, id, isFeatured) }
     }
 
     suspend fun getSuggestionList(authToken: String): Resource<SuggestionData>{
@@ -37,5 +37,25 @@ class StreamRepo: SafeApiRequest() {
 
     suspend fun setLikeUnlike(authToken: String, favDetails: HashMap<String, Any>): Resource<FavData>{
         return apiRequest { RetrofitBuilder().streamService().setLikeUnlike(authToken, favDetails) }
+    }
+
+    suspend fun getAllMovies(authToken: String, id: Int, pageNo: Int): Resource<SeeMoreData>{
+        return apiRequest { RetrofitBuilder().streamService().getAllMovies(authToken, id, pageNo) }
+    }
+
+    suspend fun getAllSeries(authToken: String, id: Int, pageNo: Int): Resource<SeeMoreData>{
+        return apiRequest { RetrofitBuilder().streamService().getAllSeries(authToken, id, pageNo) }
+    }
+
+    suspend fun getMyHomeList(authToken: String): Resource<MyListData>{
+        return apiRequest { RetrofitBuilder().streamService().getMyHomeList(authToken) }
+    }
+
+    suspend fun getMyShowsList(authToken: String): Resource<MyListData>{
+        return apiRequest { RetrofitBuilder().streamService().getMyShowsList(authToken) }
+    }
+
+    suspend fun getMyMoviesList(authToken: String): Resource<MyListData>{
+        return apiRequest { RetrofitBuilder().streamService().getMyMoviesList(authToken) }
     }
 }

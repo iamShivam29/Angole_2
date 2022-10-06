@@ -7,7 +7,9 @@ import android.util.Log
 import android.util.Patterns
 import android.view.View
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
+import com.android.angole.R
 import com.android.angole.VerifyEmailActivity
 import com.android.angole.adapters.MainRecyclerAdapter
 import com.android.angole.config.AuthConfig
@@ -30,6 +32,9 @@ class SignInActivity : AppCompatActivity() {
     private fun initView(){
         binding?.btnSignIn?.setOnClickListener {
             if (validateInput()){
+                it.isEnabled = false
+                it.background = ContextCompat.getDrawable(this , R.color.gray)
+                binding?.loadingProgress?.visibility = View.VISIBLE
                 doLogin()
             }
         }
@@ -119,6 +124,13 @@ class SignInActivity : AppCompatActivity() {
                         Toast.makeText(this, "Something went wrong", Toast.LENGTH_SHORT).show()
                     }
                 }
+
+                binding?.btnSignIn?.isEnabled = true
+                binding?.btnSignIn?.background = ContextCompat.getDrawable(this , R.drawable.button_main_background)
+                binding?.loadingProgress?.visibility = View.GONE
+
+                userViewModel?.loginData?.removeObservers(this)
+                userViewModel?.loginData?.value = null
             }
         }
     }

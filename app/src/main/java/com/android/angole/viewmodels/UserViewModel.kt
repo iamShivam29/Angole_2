@@ -11,7 +11,7 @@ import kotlinx.coroutines.launch
 class UserViewModel: ViewModel() {
     var loginData = MutableLiveData<Resource<LoginData>>()
     var registerData = MutableLiveData<Resource<RegisterData>>()
-    var sendOtpData = MutableLiveData<Resource<RegisterData>>()
+    var sendOtpData = MutableLiveData<Resource<VerifyData>>()
     var verifyData = MutableLiveData<Resource<VerifyData>>()
     var resetPasswordData = MutableLiveData<Resource<VerifyData>>()
     var avatarData = MutableLiveData<Resource<AvatarData>>()

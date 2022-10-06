@@ -23,7 +23,7 @@ class ProfileActivity : AppCompatActivity() {
         }
 
         binding?.btnEdit?.setOnClickListener {
-            startActivity(Intent(this, EditProfile::class.java))
+            startActivity(Intent(this, EditProfileActivity::class.java))
         }
     }
 }

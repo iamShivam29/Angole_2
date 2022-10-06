@@ -25,7 +25,7 @@
             android:name=".views.SelectAvatarActivity"
             android:exported="false" />
         <activity
-            android:name=".views.EditProfile"
+            android:name=".views.EditProfileActivity"
             android:exported="false" />
         <activity
             android:name=".views.SplashActivity"

@@ -6,10 +6,12 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
+import android.widget.Toast
 import com.android.angole.databinding.ActivityPlayerBinding
 import com.android.angole.databinding.PlayerControllerBinding
 import com.google.android.exoplayer2.ExoPlayer
 import com.google.android.exoplayer2.MediaItem
+import com.google.android.exoplayer2.PlaybackException
 import com.google.android.exoplayer2.Player
 import com.google.android.exoplayer2.analytics.PlaybackStatsListener
 import com.google.android.exoplayer2.ui.AspectRatioFrameLayout
@@ -101,6 +103,12 @@ class PlayerActivity : AppCompatActivity() {
                         binding?.playerProgress?.visibility = View.INVISIBLE
                     }
                 }
+            }
+
+            override fun onPlayerError(error: PlaybackException) {
+                super.onPlayerError(error)
+                Log.i("Player", "Error is ${error.localizedMessage}")
+                Toast.makeText(this@PlayerActivity, "Cannot load the video", Toast.LENGTH_SHORT).show()
             }
         }
 

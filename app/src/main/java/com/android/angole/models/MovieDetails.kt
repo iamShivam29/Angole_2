@@ -1,7 +1,5 @@
 package com.android.angole.models
 
-import java.time.Duration
-
 data class MovieDetails(
     var subCode: Int,
     var message: String,
@@ -9,6 +7,11 @@ data class MovieDetails(
 )
 
 data class MovieItems(
+    val data: MoviesData?,
+    val similar: List<CategoryItems>?
+)
+
+data class MoviesData(
     var id: Int?,
     var name: String?,
     var genre: String?,

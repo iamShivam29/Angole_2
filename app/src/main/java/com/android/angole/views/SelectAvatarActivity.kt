@@ -1,5 +1,6 @@
 package com.android.angole.views
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -10,7 +11,6 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.android.angole.adapters.AvatarRecyclerAdapter
 import com.android.angole.databinding.ActivitySelectAvatarBinding
 import com.android.angole.models.AvatarItems
-import com.android.angole.utils.ImageSelectedSingleton.avatarItem
 import com.android.angole.utils.MarginItemDecoration
 import com.android.angole.viewmodels.UserViewModel
 
@@ -84,7 +84,11 @@ class SelectAvatarActivity : AppCompatActivity(), AvatarRecyclerAdapter.OnClickE
     }
 
     override fun onItemClicked(items: AvatarItems) {
-        avatarItem = items
+        val intent = Intent()
+        intent.putExtra("imageId", items._id)
+        intent.putExtra("imageUrl", items.url)
+        setResult(RESULT_OK, intent)
+
         finish()
     }
 }

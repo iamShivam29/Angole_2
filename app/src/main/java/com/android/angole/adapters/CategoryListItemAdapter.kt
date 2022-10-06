@@ -11,7 +11,7 @@ import com.android.angole.databinding.ThumbnailItemViewBinding
 import com.android.angole.models.CategoryItems
 import com.bumptech.glide.Glide
 
-class CategoryListItemAdapter(val context: Context, private val itemList: List<CategoryItems>, val onMainClick: OnMainClick): RecyclerView.Adapter<CategoryListItemAdapter.CategoryItemViewHolder>() {
+class CategoryListItemAdapter(val context: Context, private val itemList: List<CategoryItems?>, val onMainClick: OnMainClick): RecyclerView.Adapter<CategoryListItemAdapter.CategoryItemViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryItemViewHolder {
         val inflater = LayoutInflater.from(context)
         val binding = ThumbnailItemViewBinding.inflate(inflater)
@@ -19,11 +19,11 @@ class CategoryListItemAdapter(val context: Context, private val itemList: List<C
     }
 
     override fun onBindViewHolder(holder: CategoryItemViewHolder, position: Int) {
-        val imageUrl = itemList[position].cover
+        val imageUrl = itemList[position]?.cover
         if (!imageUrl.isNullOrEmpty()) {
             if (!(context as Activity).isFinishing) {
                 Glide.with(context)
-                    .load(itemList[position].cover)
+                    .load(itemList[position]?.cover)
                     .into(holder.binding.ivThumbnail)
             }
         }else{
@@ -43,19 +43,20 @@ class CategoryListItemAdapter(val context: Context, private val itemList: List<C
     inner class CategoryItemViewHolder(val binding: ThumbnailItemViewBinding): RecyclerView.ViewHolder(binding.root){
         init {
             binding.thumbnailRoot.setOnClickListener {
-                val type = itemList[absoluteAdapterPosition].type
-                val id = itemList[absoluteAdapterPosition].id
+//                val type = itemList[absoluteAdapterPosition].type
+//                val id = itemList[absoluteAdapterPosition].id
+                val categoryItems = itemList[absoluteAdapterPosition]
 
-                if (type == null || id == null){
+                if (categoryItems == null){
                     Toast.makeText(context, "Something went wrong", Toast.LENGTH_SHORT).show()
                 }else {
-                    onMainClick.onItemClick(type, id)
+                    onMainClick.onItemClick(categoryItems)
                 }
             }
         }
     }
 
     interface OnMainClick{
-        fun onItemClick(type: String, id: Int)
+        fun onItemClick(categoryItems: CategoryItems)
     }
 }

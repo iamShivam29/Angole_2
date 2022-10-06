@@ -67,4 +67,7 @@ dependencies {
 
     // shimmer
     implementation 'com.facebook.shimmer:shimmer:0.5.0'
+
+    // for smooth streaming of video in our exoplayer.
+    implementation 'com.google.android.exoplayer:exoplayer-smoothstreaming:2.18.1'
 }

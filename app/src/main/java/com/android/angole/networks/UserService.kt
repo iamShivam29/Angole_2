@@ -18,7 +18,7 @@ interface UserService {
     suspend fun registerUser(@Body registerDetails: HashMap<String, String>): Response<RegisterData>
 
     @POST("user/otp/send/")
-    suspend fun sendOtp(@Body requestOtpDetails: HashMap<String, String>): Response<RegisterData>
+    suspend fun sendOtp(@Body requestOtpDetails: HashMap<String, String>): Response<VerifyData>
 
     @POST("user/otp/verify/")
     suspend fun verifyOtp(@Body verifyOtp: HashMap<String, String>): Response<VerifyData>
